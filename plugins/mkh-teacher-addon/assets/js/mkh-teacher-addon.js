@@ -6,6 +6,51 @@
 	const fieldDefinitions = Array.isArray(config.fields) ? config.fields : Object.values(config.fields || {});
 	const genderOptions = Array.isArray(config.genderOptions) ? config.genderOptions : [];
 
+	function normalizeDefaultFields() {
+		if (!window.authorization_data) {
+			return {};
+		}
+
+		const current = window.authorization_data.default_fields;
+		const normalized = {};
+
+		if (Array.isArray(current)) {
+			current.forEach((field) => {
+				if (field && field.slug) {
+					normalized[field.slug] = {
+						...field,
+						value: field.value || '',
+					};
+				}
+			});
+		} else if (current && typeof current === 'object') {
+			Object.keys(current).forEach((fieldKey) => {
+				if (fieldKey === 'length') {
+					return;
+				}
+				const field = current[fieldKey];
+				if (field && typeof field === 'object') {
+					const slug = field.slug || fieldKey;
+					normalized[slug] = {
+						...field,
+						slug,
+						value: field.value || '',
+					};
+				}
+			});
+		}
+
+		Object.defineProperty(normalized, 'length', {
+			value: Object.keys(normalized).length,
+			enumerable: false,
+			configurable: true,
+			writable: true,
+		});
+
+		window.authorization_data.default_fields = normalized;
+		return normalized;
+	}
+
 	function ready(callback) {
 		if (document.readyState === 'loading') {
 			document.addEventListener('DOMContentLoaded', callback, { once: true });
@@ -60,24 +105,33 @@
 			return;
 		}
 
-		if (!window.authorization_data.default_fields || typeof window.authorization_data.default_fields !== 'object') {
-			window.authorization_data.default_fields = {};
-		}
+		const defaultFields = normalizeDefaultFields();
+		const existingField = defaultFields[field.slug];
+		const normalizedField = {
+			slug: field.slug,
+			label: field.label,
+			placeholder: field.placeholder,
+			required: Boolean(field.required),
+			type: field.type,
+			value: '',
+		};
 
-		if (!window.authorization_data.default_fields[field.slug]) {
-			window.authorization_data.default_fields[field.slug] = {
-				label: field.label,
-				placeholder: field.placeholder,
-				required: Boolean(field.required),
-				type: field.type,
-			};
+		if (!existingField) {
+			defaultFields[field.slug] = normalizedField;
+			Object.defineProperty(defaultFields, 'length', {
+				value: Object.keys(defaultFields).filter((key) => key !== 'length').length,
+				enumerable: false,
+				configurable: true,
+				writable: true,
+			});
 			return;
 		}
 
-		window.authorization_data.default_fields[field.slug].label = field.label;
-		window.authorization_data.default_fields[field.slug].placeholder = field.placeholder;
-		window.authorization_data.default_fields[field.slug].required = Boolean(field.required);
-		window.authorization_data.default_fields[field.slug].type = field.type;
+		defaultFields[field.slug] = {
+			...existingField,
+			...normalizedField,
+			value: existingField.value || '',
+		};
 	}
 
 	function ensurePrivacyCheckbox(formWrapper) {
@@ -121,6 +175,8 @@
 		if (!formWrapper) {
 			return;
 		}
+
+		normalizeDefaultFields();
 
 		fieldDefinitions.forEach((field) => {
 			if (!field || !field.slug) {

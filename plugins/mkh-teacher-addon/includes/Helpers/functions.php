@@ -81,3 +81,18 @@ function mkh_teacher_addon_is_registration_screen(): bool {
 
 	return true;
 }
+
+function mkh_teacher_addon_is_profile_screen(): bool {
+	if ( is_admin() ) {
+		return false;
+	}
+
+	$settings = get_option( 'stm_lms_settings', array() );
+	$user_url = absint( $settings['user_url'] ?? 0 );
+
+	if ( empty( $user_url ) || ! is_singular() ) {
+		return false;
+	}
+
+	return get_queried_object_id() === $user_url;
+}

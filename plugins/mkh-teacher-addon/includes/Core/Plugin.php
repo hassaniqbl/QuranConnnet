@@ -9,7 +9,7 @@ use MKH\TeacherAddon\Dashboard\Module as Dashboard_Module;
 use MKH\TeacherAddon\Frontend\Module as Frontend_Module;
 use MKH\TeacherAddon\Registration\Registration as Registration_Module;
 use MKH\TeacherAddon\Notifications\Module as Notifications_Module;
-use MKH\TeacherAddon\Profile\Module as Profile_Module;
+use MKH\TeacherAddon\Profile\Profile as Profile_Module;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

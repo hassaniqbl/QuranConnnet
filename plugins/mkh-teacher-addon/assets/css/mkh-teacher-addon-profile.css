@@ -1,0 +1,178 @@
+.mkh-teacher-addon-profile {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 28px;
+  gap: 24px;
+}
+
+.mkh-teacher-addon-profile__header {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 6px;
+}
+
+.mkh-teacher-addon-profile__header .masterstudy-account-settings__title {
+  margin: 0;
+}
+
+.mkh-teacher-addon__section {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 24px;
+  border-top: 1px solid #dbe0e9;
+}
+
+.mkh-teacher-addon__section:first-of-type {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.mkh-teacher-addon__section-head {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mkh-teacher-addon__section-title {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.mkh-teacher-addon__fields {
+  width: 100%;
+}
+
+.mkh-teacher-addon-profile .masterstudy-account-settings__field {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.mkh-teacher-addon-profile .masterstudy-account-settings__field-wrapper {
+  gap: 0;
+}
+
+.mkh-teacher-addon-profile .masterstudy-account-settings__field-label {
+  margin-bottom: 8px;
+}
+
+.mkh-teacher-addon-profile .masterstudy-account-settings__field-desc {
+  margin-top: 8px;
+}
+
+.mkh-teacher-addon__field-status {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  vertical-align: middle;
+}
+
+.mkh-teacher-addon__field-status_required {
+  background: #fff4d6;
+  color: #8a5b00;
+}
+
+.mkh-teacher-addon__field-status_optional {
+  background: #eef2f7;
+  color: #5f6b7a;
+}
+
+.mkh-teacher-addon__field-status_completed {
+  background: #dff6e8;
+  color: #19693e;
+}
+
+.mkh-teacher-addon__counter {
+  margin-top: 8px;
+  color: #6c757d;
+  font-size: 13px;
+}
+
+.mkh-teacher-addon__video-preview {
+  display: flex;
+  width: 100%;
+  min-height: 260px;
+  overflow: hidden;
+  border: 1px solid #dbe0e9;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #f8fafc, #eef2f7);
+}
+
+.mkh-teacher-addon__video-preview iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.mkh-teacher-addon__video-preview_has-video {
+  background: #000;
+}
+
+.mkh-teacher-addon__status {
+  margin-top: 4px;
+}
+
+.mkh-teacher-addon__certificates .list-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.mkh-teacher-addon__certificates .list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid #dbe0e9;
+  border-radius: 8px;
+  padding: 14px 16px;
+  background: #fff;
+}
+
+.mkh-teacher-addon__certificates .form-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.mkh-teacher-addon-profile .d-none {
+  display: none !important;
+}
+
+@media (max-width: 767.98px) {
+  .mkh-teacher-addon-profile {
+    margin-top: 20px;
+    gap: 20px;
+  }
+
+  .mkh-teacher-addon__section {
+    gap: 16px;
+    padding-top: 20px;
+  }
+
+  .mkh-teacher-addon__section-title {
+    font-size: 18px;
+  }
+
+  .mkh-teacher-addon__video-preview {
+    min-height: 220px;
+  }
+
+  .mkh-teacher-addon__certificates .list-group-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

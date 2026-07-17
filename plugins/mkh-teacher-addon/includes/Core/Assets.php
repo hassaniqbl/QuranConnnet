@@ -28,6 +28,21 @@ final class Assets {
 			MKH_TEACHER_ADDON_VERSION,
 			true
 		);
+
+		wp_register_style(
+			'mkh-teacher-addon-profile',
+			MKH_TEACHER_ADDON_URL . 'assets/css/mkh-teacher-addon-profile.css',
+			array(),
+			MKH_TEACHER_ADDON_VERSION
+		);
+
+		wp_register_script(
+			'mkh-teacher-addon-profile',
+			MKH_TEACHER_ADDON_URL . 'assets/js/mkh-teacher-addon-profile.js',
+			array( 'jquery', 'mkh-teacher-addon' ),
+			MKH_TEACHER_ADDON_VERSION,
+			true
+		);
 	}
 
 	public function register_admin_assets(): void {
@@ -41,5 +56,10 @@ final class Assets {
 	public function enqueue(): void {
 		wp_enqueue_style( 'mkh-teacher-addon' );
 		wp_enqueue_script( 'mkh-teacher-addon' );
+	}
+
+	public function enqueue_profile(): void {
+		wp_enqueue_style( 'mkh-teacher-addon-profile' );
+		wp_enqueue_script( 'mkh-teacher-addon-profile' );
 	}
 }
