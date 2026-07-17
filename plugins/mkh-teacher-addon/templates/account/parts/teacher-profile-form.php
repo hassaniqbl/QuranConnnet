@@ -87,12 +87,12 @@ if ( isset( $_GET['updated'] ) && 'true' === $_GET['updated'] ) {
 	.mkh-teacher-profile-form input[type="url"]:focus,
 	.mkh-teacher-profile-form textarea:focus,
 	.mkh-teacher-profile-form select:focus {
-		border-color: #3ba2f2;
+		border-color:  #273044 ;
 		outline: none;
 	}
 
 	.mkh-teacher-profile-form .acf-button {
-		background: #3ba2f2;
+		background:  #273044 ;
 		color: #fff;
 		padding: 12px 30px;
 		border: none;
@@ -119,7 +119,7 @@ if ( isset( $_GET['updated'] ) && 'true' === $_GET['updated'] ) {
 	}
 
 	.mkh-teacher-profile-form .acf-tab-button.active {
-		background: #3ba2f2;
+		background:  #273044 ;
 		color: #fff;
 	}
 
@@ -132,7 +132,7 @@ if ( isset( $_GET['updated'] ) && 'true' === $_GET['updated'] ) {
 	}
 
 	.mkh-teacher-profile-form .acf-repeater .acf-row-handle {
-		background: #3ba2f2;
+		background:  #273044 ;
 	}
 
 	.mkh-teacher-profile-form .acf-checkbox-list input[type="checkbox"] {

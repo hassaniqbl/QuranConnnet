@@ -131,50 +131,21 @@ class MKH_Teacher_Profile_ACF {
 			'endpoint'      => 0,
 		);
 
-		// Hourly Rate Field
+		// About Teacher Field (moved from About section)
 		$fields[] = array(
-			'key'           => 'field_mkh_teacher_profile_hourly_rate',
-			'name'          => 'hourly_rate',
-			'label'         => esc_html__( 'Hourly Rate', 'mkh-teacher-addon' ),
-			'type'          => 'number',
-			'instructions'  => esc_html__( 'Enter the standard hourly teaching rate for this instructor.', 'mkh-teacher-addon' ),
+			'key'           => 'field_mkh_teacher_profile_about',
+			'name'          => 'about_teacher',
+			'label'         => esc_html__( 'About Teacher', 'mkh-teacher-addon' ),
+			'type'          => 'textarea',
+			'instructions'  => esc_html__( 'Write a clear introduction that highlights experience, teaching approach, and character.', 'mkh-teacher-addon' ),
 			'required'      => 0,
-			'wrapper'       => array( 'width' => '50' ),
-			'prepend'       => '$',
-			'min'           => 0,
-			'step'          => 1,
-			'return_format' => 'float',
+			'wrapper'       => array( 'width' => '100' ),
+			'rows'          => 8,
+			'maxlength'     => 1000,
 		);
 
-		// Languages Field
-		$fields[] = array(
-			'key'           => 'field_mkh_teacher_profile_languages',
-			'name'          => 'languages',
-			'label'         => esc_html__( 'Languages', 'mkh-teacher-addon' ),
-			'type'          => 'checkbox',
-			'instructions'  => esc_html__( 'Select the languages you teach or communicate in.', 'mkh-teacher-addon' ),
-			'required'      => 0,
-			'wrapper'       => array( 'width' => '50' ),
-			'choices'       => array(
-				'english'    => esc_html__( 'English', 'mkh-teacher-addon' ),
-				'arabic'     => esc_html__( 'Arabic', 'mkh-teacher-addon' ),
-				'urdu'       => esc_html__( 'Urdu', 'mkh-teacher-addon' ),
-				'hindi'      => esc_html__( 'Hindi', 'mkh-teacher-addon' ),
-				'punjabi'    => esc_html__( 'Punjabi', 'mkh-teacher-addon' ),
-				'turkish'    => esc_html__( 'Turkish', 'mkh-teacher-addon' ),
-				'bengali'    => esc_html__( 'Bengali', 'mkh-teacher-addon' ),
-				'persian'    => esc_html__( 'Persian', 'mkh-teacher-addon' ),
-				'pashto'     => esc_html__( 'Pashto', 'mkh-teacher-addon' ),
-				'malay'      => esc_html__( 'Malay', 'mkh-teacher-addon' ),
-				'indonesian' => esc_html__( 'Indonesian', 'mkh-teacher-addon' ),
-				'french'     => esc_html__( 'French', 'mkh-teacher-addon' ),
-			),
-			'allow_custom'  => 0,
-			'layout'        => 'vertical',
-			'return_format' => 'array',
-		);
 
-		// Fiqh Field
+		// Fiqh Field (50% width for side-by-side layout)
 		$fields[] = array(
 			'key'           => 'field_mkh_teacher_profile_fiqh',
 			'name'          => 'fiqh',
@@ -192,11 +163,11 @@ class MKH_Teacher_Profile_ACF {
 			'default_value' => '',
 			'allow_null'    => 1,
 			'multiple'      => 0,
-			'ui'            => 0,
+			'ui'            => 1,
 			'return_format' => 'value',
 		);
 
-		// Sect Field
+		// Sect Field (50% width for side-by-side layout)
 		$fields[] = array(
 			'key'           => 'field_mkh_teacher_profile_sect',
 			'name'          => 'sect',
@@ -262,51 +233,54 @@ class MKH_Teacher_Profile_ACF {
 			'wrapper'       => array( 'width' => '50' ),
 			'return_format' => 'url',
 		);
-
-		// ========================================
-		// SECTION 2: ABOUT
-		// ========================================
-
-		// Tab for About
+		// Languages Field (changed to Multi-Select)
 		$fields[] = array(
-			'key'           => 'field_mkh_teacher_profile_tab_about',
-			'name'          => 'mkh_teacher_profile_tab_about',
-			'label'         => esc_html__( 'About', 'mkh-teacher-addon' ),
-			'type'          => 'tab',
-			'instructions'  => esc_html__( 'Teacher biography and professional summary.', 'mkh-teacher-addon' ),
+			'key'           => 'field_mkh_teacher_profile_languages',
+			'name'          => 'languages',
+			'label'         => esc_html__( 'Languages', 'mkh-teacher-addon' ),
+			'type'          => 'select',
+			'instructions'  => esc_html__( 'Select the languages you teach or communicate in.', 'mkh-teacher-addon' ),
 			'required'      => 0,
-			'placement'     => 'top',
-			'endpoint'      => 0,
+			'wrapper'       => array( 'width' => '50' ),
+			'choices'       => array(
+				'english'    => esc_html__( 'English', 'mkh-teacher-addon' ),
+				'arabic'     => esc_html__( 'Arabic', 'mkh-teacher-addon' ),
+				'urdu'       => esc_html__( 'Urdu', 'mkh-teacher-addon' ),
+				'hindi'      => esc_html__( 'Hindi', 'mkh-teacher-addon' ),
+				'punjabi'    => esc_html__( 'Punjabi', 'mkh-teacher-addon' ),
+				'turkish'    => esc_html__( 'Turkish', 'mkh-teacher-addon' ),
+				'bengali'    => esc_html__( 'Bengali', 'mkh-teacher-addon' ),
+				'persian'    => esc_html__( 'Persian', 'mkh-teacher-addon' ),
+				'pashto'     => esc_html__( 'Pashto', 'mkh-teacher-addon' ),
+				'malay'      => esc_html__( 'Malay', 'mkh-teacher-addon' ),
+				'indonesian' => esc_html__( 'Indonesian', 'mkh-teacher-addon' ),
+				'french'     => esc_html__( 'French', 'mkh-teacher-addon' ),
+			),
+			'allow_custom'  => 0,
+			'multiple'      => 1,
+			'ui'            => 1,
+			'ajax'          => 0,
+			'placeholder'  => esc_html__( 'Select languages', 'mkh-teacher-addon' ),
+			'return_format' => 'array',
 		);
 
-		// Accordion for About
+		// Hourly Rate Field (moved to last position)
 		$fields[] = array(
-			'key'           => 'field_mkh_teacher_profile_accordion_about',
-			'name'          => 'mkh_teacher_profile_accordion_about',
-			'label'         => esc_html__( 'About', 'mkh-teacher-addon' ),
-			'type'          => 'accordion',
-			'instructions'  => esc_html__( 'Use this area for a polished bio and personal overview.', 'mkh-teacher-addon' ),
+			'key'           => 'field_mkh_teacher_profile_hourly_rate',
+			'name'          => 'hourly_rate',
+			'label'         => esc_html__( 'Hourly Rate', 'mkh-teacher-addon' ),
+			'type'          => 'number',
+			'instructions'  => esc_html__( 'Enter the standard hourly teaching rate for this instructor.', 'mkh-teacher-addon' ),
 			'required'      => 0,
-			'open'          => 1,
-			'multi_expand'  => 0,
-			'endpoint'      => 0,
-		);
-
-		// About Teacher Field
-		$fields[] = array(
-			'key'           => 'field_mkh_teacher_profile_about',
-			'name'          => 'about_teacher',
-			'label'         => esc_html__( 'About Teacher', 'mkh-teacher-addon' ),
-			'type'          => 'textarea',
-			'instructions'  => esc_html__( 'Write a clear introduction that highlights experience, teaching approach, and character.', 'mkh-teacher-addon' ),
-			'required'      => 0,
-			'wrapper'       => array( 'width' => '100' ),
-			'rows'          => 8,
-			'maxlength'     => 1000,
+			'wrapper'       => array( 'width' => '50' ),
+			'prepend'       => '$',
+			'min'           => 0,
+			'step'          => 1,
+			'return_format' => 'float',
 		);
 
 		// ========================================
-		// SECTION 3: TEACHING SKILLS
+		// SECTION 2: TEACHING SKILLS
 		// ========================================
 
 		// Tab for Teaching Skills
@@ -355,7 +329,7 @@ class MKH_Teacher_Profile_ACF {
 		);
 
 		// ========================================
-		// SECTION 4: EMPLOYMENT HISTORY
+		// SECTION 3: EMPLOYMENT HISTORY
 		// ========================================
 
 		// Tab for Employment History
@@ -451,7 +425,7 @@ class MKH_Teacher_Profile_ACF {
 		);
 
 		// ========================================
-		// SECTION 5: CERTIFICATIONS
+		// SECTION 4: CERTIFICATIONS
 		// ========================================
 
 		// Tab for Certifications
@@ -538,7 +512,7 @@ class MKH_Teacher_Profile_ACF {
 		);
 
 		// ========================================
-		// SECTION 6: IJAZAH
+		// SECTION 5: IJAZAH
 		// ========================================
 
 		// Tab for Ijazah

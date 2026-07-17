@@ -283,7 +283,17 @@ class STM_LMS_User_Menu {
 			'is_active'    => 'settings' === $current_slug,
 			'section'      => 'account',
 		);
-
+		$menus[] = array(
+			'order'        => 130,
+			'id'           => 'settings',
+			'slug'         => 'settings',
+			'lms_template' => 'account/settings',
+			'menu_title'   => esc_html__( 'Edit Profile', 'masterstudy-lms-learning-management-system' ),
+			'menu_icon'    => 'stmlms-menu-settings',
+			'menu_url'     => ms_plugin_user_account_url( 'edit-profile' ),
+			'is_active'    => 'edit-profile' === $current_slug,
+			'section'      => 'account',
+		);
 		$menus[] = array(
 			'order'        => 120,
 			'id'           => 'messages',
