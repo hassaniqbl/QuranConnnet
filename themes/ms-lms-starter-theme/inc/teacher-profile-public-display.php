@@ -27,9 +27,13 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 
 	// Load all ACF fields once.
 	$about_teacher       = get_field( 'about_teacher', 'user_' . $instructor_id );
+	$age                 = get_field( 'mkh_age', 'user_' . $instructor_id );
 	$languages           = get_field( 'languages', 'user_' . $instructor_id );
+	$country             = get_field( 'mkh_country', 'user_' . $instructor_id );
+	$timezone            = get_field( 'mkh_timezone', 'user_' . $instructor_id );
 	$fiqh                 = get_field( 'fiqh', 'user_' . $instructor_id );
 	$sect                 = get_field( 'sect', 'user_' . $instructor_id );
+	$gender               = get_field( 'mkh_gender', 'user_' . $instructor_id );
 	$teaching_skills     = get_field( 'teaching_skills', 'user_' . $instructor_id );
 	$hourly_rate         = get_field( 'hourly_rate', 'user_' . $instructor_id );
 	$teacher_photo       = get_field( 'teacher_photo', 'user_' . $instructor_id );
@@ -41,7 +45,7 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 	$ijazah              = get_field( 'ijazah', 'user_' . $instructor_id );
 
 	// Early return if everything is empty.
-	$has_data = $about_teacher || $languages || $fiqh || $sect || $teaching_skills || $hourly_rate || $teacher_photo || $recitation_audio || $intro_video_file || $intro_video_url || $employment_history || $certifications || $ijazah;
+	$has_data = $about_teacher || $age || $languages || $country || $timezone || $fiqh || $sect || $gender || $teaching_skills || $hourly_rate || $teacher_photo || $recitation_audio || $intro_video_file || $intro_video_url || $employment_history || $certifications || $ijazah;
 	if ( ! $has_data ) {
 		return;
 	}
@@ -68,6 +72,259 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 		'maliki'  => __( 'Maliki', 'mkh-teacher-addon' ),
 		'hanbali' => __( 'Hanbali', 'mkh-teacher-addon' ),
 	);
+
+	$gender_labels = array(
+		'male'             => __( 'Male', 'mkh-teacher-addon' ),
+		'female'           => __( 'Female', 'mkh-teacher-addon' ),
+		'prefer_not_to_say' => __( 'Prefer not to say', 'mkh-teacher-addon' ),
+	);
+
+	// Get country name from code
+	$mkh_country_name = static function ( $country_code ) use ( $language_labels ) {
+		if ( empty( $country_code ) ) {
+			return '';
+		}
+
+		// Create a simple country mapping (can be expanded)
+		$countries = array(
+			'AF' => 'Afghanistan',
+			'AL' => 'Albania',
+			'DZ' => 'Algeria',
+			'AS' => 'American Samoa',
+			'AD' => 'Andorra',
+			'AO' => 'Angola',
+			'AI' => 'Anguilla',
+			'AQ' => 'Antarctica',
+			'AG' => 'Antigua and Barbuda',
+			'AR' => 'Argentina',
+			'AM' => 'Armenia',
+			'AW' => 'Aruba',
+			'AU' => 'Australia',
+			'AT' => 'Austria',
+			'AZ' => 'Azerbaijan',
+			'BS' => 'Bahamas',
+			'BH' => 'Bahrain',
+			'BD' => 'Bangladesh',
+			'BB' => 'Barbados',
+			'BY' => 'Belarus',
+			'BE' => 'Belgium',
+			'BZ' => 'Belize',
+			'BJ' => 'Benin',
+			'BM' => 'Bermuda',
+			'BT' => 'Bhutan',
+			'BO' => 'Bolivia',
+			'BA' => 'Bosnia and Herzegovina',
+			'BW' => 'Botswana',
+			'BV' => 'Bouvet Island',
+			'BR' => 'Brazil',
+			'IO' => 'British Indian Ocean Territory',
+			'BN' => 'Brunei Darussalam',
+			'BG' => 'Bulgaria',
+			'BF' => 'Burkina Faso',
+			'BI' => 'Burundi',
+			'KH' => 'Cambodia',
+			'CM' => 'Cameroon',
+			'CA' => 'Canada',
+			'CV' => 'Cape Verde',
+			'KY' => 'Cayman Islands',
+			'TD' => 'Chad',
+			'CL' => 'Chile',
+			'CN' => 'China',
+			'CX' => 'Christmas Island',
+			'CC' => 'Cocos (Keeling) Islands',
+			'CO' => 'Colombia',
+			'KM' => 'Comoros',
+			'CG' => 'Congo',
+			'CK' => 'Cook Islands',
+			'CR' => 'Costa Rica',
+			'CI' => 'Cote D\'Ivoire',
+			'HR' => 'Croatia',
+			'CU' => 'Cuba',
+			'CY' => 'Cyprus',
+			'CZ' => 'Czech Republic',
+			'DK' => 'Denmark',
+			'DJ' => 'Djibouti',
+			'DM' => 'Dominica',
+			'DO' => 'Dominican Republic',
+			'EC' => 'Ecuador',
+			'EG' => 'Egypt',
+			'SV' => 'El Salvador',
+			'GQ' => 'Equatorial Guinea',
+			'ER' => 'Eritrea',
+			'EE' => 'Estonia',
+			'ET' => 'Ethiopia',
+			'FK' => 'Falkland Islands (Malvinas)',
+			'FO' => 'Faroe Islands',
+			'FJ' => 'Fiji',
+			'FI' => 'Finland',
+			'FR' => 'France',
+			'GF' => 'French Guiana',
+			'PF' => 'French Polynesia',
+			'TF' => 'French Southern Territories',
+			'GA' => 'Gabon',
+			'GM' => 'Gambia',
+			'GE' => 'Georgia',
+			'DE' => 'Germany',
+			'GH' => 'Ghana',
+			'GI' => 'Gibraltar',
+			'GR' => 'Greece',
+			'GL' => 'Greenland',
+			'GD' => 'Grenada',
+			'GP' => 'Guadeloupe',
+			'GU' => 'Guam',
+			'GT' => 'Guatemala',
+			'GN' => 'Guinea',
+			'GW' => 'Guinea-Bissau',
+			'GY' => 'Guyana',
+			'HT' => 'Haiti',
+			'HM' => 'Heard Island and Mcdonald Islands',
+			'VA' => 'Holy See (Vatican City State)',
+			'HN' => 'Honduras',
+			'HK' => 'Hong Kong',
+			'HU' => 'Hungary',
+			'IS' => 'Iceland',
+			'IN' => 'India',
+			'ID' => 'Indonesia',
+			'IR' => 'Iran, Islamic Republic of',
+			'IQ' => 'Iraq',
+			'IE' => 'Ireland',
+			'IL' => 'Israel',
+			'IT' => 'Italy',
+			'JM' => 'Jamaica',
+			'JP' => 'Japan',
+			'JO' => 'Jordan',
+			'KZ' => 'Kazakhstan',
+			'KE' => 'Kenya',
+			'KI' => 'Kiribati',
+			'KP' => 'Korea, Democratic People\'s Republic of',
+			'KR' => 'Korea, Republic of',
+			'KW' => 'Kuwait',
+			'KG' => 'Kyrgyzstan',
+			'LA' => 'Lao People\'s Democratic Republic',
+			'LV' => 'Latvia',
+			'LB' => 'Lebanon',
+			'LS' => 'Lesotho',
+			'LR' => 'Liberia',
+			'LY' => 'Libyan Arab Jamahiriya',
+			'LI' => 'Liechtenstein',
+			'LT' => 'Lithuania',
+			'LU' => 'Luxembourg',
+			'MO' => 'Macao',
+			'MK' => 'Macedonia, The Former Yugoslav Republic of',
+			'MG' => 'Madagascar',
+			'MW' => 'Malawi',
+			'MY' => 'Malaysia',
+			'MV' => 'Maldives',
+			'ML' => 'Mali',
+			'MT' => 'Malta',
+			'MH' => 'Marshall Islands',
+			'MQ' => 'Martinique',
+			'MR' => 'Mauritania',
+			'MU' => 'Mauritius',
+			'YT' => 'Mayotte',
+			'MX' => 'Mexico',
+			'FM' => 'Micronesia, Federated States of',
+			'MD' => 'Moldova, Republic of',
+			'MC' => 'Monaco',
+			'MN' => 'Mongolia',
+			'MS' => 'Montserrat',
+			'MA' => 'Morocco',
+			'MZ' => 'Mozambique',
+			'MM' => 'Myanmar',
+			'NA' => 'Namibia',
+			'NR' => 'Nauru',
+			'NP' => 'Nepal',
+			'NL' => 'Netherlands',
+			'AN' => 'Netherlands Antilles',
+			'NC' => 'New Caledonia',
+			'NZ' => 'New Zealand',
+			'NI' => 'Nicaragua',
+			'NE' => 'Niger',
+			'NG' => 'Nigeria',
+			'NU' => 'Niue',
+			'NF' => 'Norfolk Island',
+			'MP' => 'Northern Mariana Islands',
+			'NO' => 'Norway',
+			'OM' => 'Oman',
+			'PK' => 'Pakistan',
+			'PW' => 'Palau',
+			'PS' => 'Palestinian Territory, Occupied',
+			'PA' => 'Panama',
+			'PG' => 'Papua New Guinea',
+			'PY' => 'Paraguay',
+			'PE' => 'Peru',
+			'PH' => 'Philippines',
+			'PN' => 'Pitcairn',
+			'PL' => 'Poland',
+			'PT' => 'Portugal',
+			'PR' => 'Puerto Rico',
+			'QA' => 'Qatar',
+			'RE' => 'Reunion',
+			'RO' => 'Romania',
+			'RU' => 'Russian Federation',
+			'RW' => 'Rwanda',
+			'KN' => 'Saint Kitts and Nevis',
+			'LC' => 'Saint Lucia',
+			'VC' => 'Saint Vincent and the Grenadines',
+			'WS' => 'Samoa',
+			'SM' => 'San Marino',
+			'ST' => 'Sao Tome and Principe',
+			'SA' => 'Saudi Arabia',
+			'SN' => 'Senegal',
+			'SC' => 'Seychelles',
+			'SL' => 'Sierra Leone',
+			'SG' => 'Singapore',
+			'SK' => 'Slovakia',
+			'SI' => 'Slovenia',
+			'SB' => 'Solomon Islands',
+			'SO' => 'Somalia',
+			'ZA' => 'South Africa',
+			'GS' => 'South Georgia and the South Sandwich Islands',
+			'ES' => 'Spain',
+			'LK' => 'Sri Lanka',
+			'SH' => 'St. Helena',
+			'SD' => 'Sudan',
+			'SR' => 'Suriname',
+			'SJ' => 'Svalbard and Jan Mayen',
+			'SZ' => 'Swaziland',
+			'SE' => 'Sweden',
+			'CH' => 'Switzerland',
+			'SY' => 'Syrian Arab Republic',
+			'TW' => 'Taiwan, Province of China',
+			'TJ' => 'Tajikistan',
+			'TZ' => 'Tanzania, United Republic of',
+			'TH' => 'Thailand',
+			'TG' => 'Togo',
+			'TK' => 'Tokelau',
+			'TO' => 'Tonga',
+			'TT' => 'Trinidad and Tobago',
+			'TN' => 'Tunisia',
+			'TR' => 'Turkey',
+			'TM' => 'Turkmenistan',
+			'TC' => 'Turks and Caicos Islands',
+			'TV' => 'Tuvalu',
+			'UG' => 'Uganda',
+			'UA' => 'Ukraine',
+			'AE' => 'United Arab Emirates',
+			'GB' => 'United Kingdom',
+			'US' => 'United States',
+			'UM' => 'United States Minor Outlying Islands',
+			'UY' => 'Uruguay',
+			'UZ' => 'Uzbekistan',
+			'VU' => 'Vanuatu',
+			'VE' => 'Venezuela',
+			'VN' => 'Viet Nam',
+			'VG' => 'Virgin Islands, British',
+			'VI' => 'Virgin Islands, U.S.',
+			'WF' => 'Wallis and Futuna',
+			'EH' => 'Western Sahara',
+			'YE' => 'Yemen',
+			'ZM' => 'Zambia',
+			'ZW' => 'Zimbabwe',
+		);
+
+		return isset( $countries[ $country_code ] ) ? $countries[ $country_code ] : $country_code;
+	};
 
 	$skill_labels = array(
 		'recitation' => __( 'Recitation', 'mkh-teacher-addon' ),
@@ -120,6 +377,27 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 			</div>
 		<?php endif; ?>
 
+		<?php if ( ! empty( $age ) ) : ?>
+			<div class="mkh-teacher-profile-section">
+				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Age', 'mkh-teacher-addon' ); ?></h3>
+				<div class="mkh-teacher-profile-content">
+					<span class="mkh-teacher-profile-value"><?php echo esc_html( $age ); ?> <?php echo esc_html__( 'Years', 'mkh-teacher-addon' ); ?></span>
+				</div>
+			</div>
+		<?php endif; ?>
+
+		<?php
+		$gender_key = $mkh_select_value( $gender );
+		if ( $gender_key && isset( $gender_labels[ $gender_key ] ) ) :
+			?>
+			<div class="mkh-teacher-profile-section">
+				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Gender', 'mkh-teacher-addon' ); ?></h3>
+				<div class="mkh-teacher-profile-content">
+					<span class="mkh-teacher-profile-value"><?php echo esc_html( $gender_labels[ $gender_key ] ); ?></span>
+				</div>
+			</div>
+		<?php endif; ?>
+
 		<?php if ( $languages && is_array( $languages ) ) : ?>
 			<div class="mkh-teacher-profile-section">
 				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Languages', 'mkh-teacher-addon' ); ?></h3>
@@ -143,7 +421,61 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 			</div>
 		<?php endif; ?>
 
-		<?php // Fiqh & Sect moved to 2-column layout with Recitation Audio below ?>
+		<?php
+		// Country and Timezone - display on same row
+		$country_name = $mkh_country_name( $mkh_select_value( $country ) );
+		$timezone_value = $mkh_select_value( $timezone );
+		if ( $country_name || $timezone_value ) :
+			?>
+			<div class="mkh-teacher-profile-section">
+				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Country & Timezone', 'mkh-teacher-addon' ); ?></h3>
+				<div class="mkh-teacher-profile-content">
+					<span class="mkh-teacher-profile-value">
+						<?php
+						if ( $country_name && $timezone_value ) {
+							echo esc_html( $country_name ) . ' • ' . esc_html( $timezone_value );
+						} elseif ( $country_name ) {
+							echo esc_html( $country_name );
+						} elseif ( $timezone_value ) {
+							echo esc_html( $timezone_value );
+						}
+						?>
+					</span>
+				</div>
+			</div>
+		<?php endif; ?>
+
+		<?php
+		// Fiqh & Sect
+		$fiqh_key = $mkh_select_value( $fiqh );
+		if ( $fiqh_key && isset( $fiqh_labels[ $fiqh_key ] ) || ( is_scalar( $sect ) && $sect ) ) :
+			?>
+			<div class="mkh-teacher-profile-section">
+				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Fiqh & Sect', 'mkh-teacher-addon' ); ?></h3>
+				<div class="mkh-teacher-profile-grid">
+					<?php
+					$fiqh_key = $mkh_select_value( $fiqh );
+					if ( $fiqh_key && isset( $fiqh_labels[ $fiqh_key ] ) ) :
+						?>
+						<div class="mkh-teacher-profile-grid-item">
+							<span class="mkh-teacher-profile-label"><?php echo esc_html__( 'Fiqh', 'mkh-teacher-addon' ); ?></span>
+							<span class="mkh-teacher-profile-value"><?php echo esc_html( $fiqh_labels[ $fiqh_key ] ); ?></span>
+						</div>
+						<?php
+					endif;
+
+					if ( is_scalar( $sect ) && $sect ) :
+						?>
+						<div class="mkh-teacher-profile-grid-item">
+							<span class="mkh-teacher-profile-label"><?php echo esc_html__( 'Sect', 'mkh-teacher-addon' ); ?></span>
+							<span class="mkh-teacher-profile-value"><?php echo esc_html( $sect ); ?></span>
+						</div>
+						<?php
+					endif;
+					?>
+				</div>
+			</div>
+		<?php endif; ?>
 
 		<?php if ( $teaching_skills && is_array( $teaching_skills ) ) : ?>
 			<div class="mkh-teacher-profile-section">
@@ -204,57 +536,21 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 		// 	</div>
 		// <?php endif; ?> */
 
-		// 2-column layout: Recitation Audio | Fiqh & Sect
+		// Recitation Audio
 		$audio_url = '';
 		if ( is_array( $recitation_audio ) && isset( $recitation_audio['url'] ) ) {
 			$audio_url = $recitation_audio['url'];
 		}
 		$audio_url = $mkh_safe_url( $audio_url );
 
-		if ( $audio_url || $fiqh || $sect ) : ?>
+		if ( $audio_url ) : ?>
 			<div class="mkh-teacher-profile-section">
-				<div class="mkh-teacher-profile-two-column">
-					<!-- Recitation Audio Column -->
-					<?php if ( $audio_url ) : ?>
-						<div class="mkh-teacher-profile-column">
-							<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Recitation Audio', 'mkh-teacher-addon' ); ?></h3>
-							<div class="mkh-teacher-profile-audio">
-								<audio controls>
-									<source src="<?php echo esc_url( $audio_url ); ?>" type="audio/mpeg" />
-									<?php echo esc_html__( 'Your browser does not support the audio element.', 'mkh-teacher-addon' ); ?>
-								</audio>
-							</div>
-						</div>
-					<?php endif; ?>
-
-					<!-- Fiqh & Sect Column -->
-					<?php if ( $fiqh || $sect ) : ?>
-						<div class="mkh-teacher-profile-column">
-							<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Fiqh & Sect', 'mkh-teacher-addon' ); ?></h3>
-							<div class="mkh-teacher-profile-grid">
-								<?php
-								$fiqh_key = $mkh_select_value( $fiqh );
-								if ( $fiqh_key && isset( $fiqh_labels[ $fiqh_key ] ) ) :
-									?>
-									<div class="mkh-teacher-profile-grid-item">
-										<span class="mkh-teacher-profile-label"><?php echo esc_html__( 'Fiqh', 'mkh-teacher-addon' ); ?></span>
-										<span class="mkh-teacher-profile-value"><?php echo esc_html( $fiqh_labels[ $fiqh_key ] ); ?></span>
-									</div>
-									<?php
-								endif;
-
-								if ( is_scalar( $sect ) && $sect ) :
-									?>
-									<div class="mkh-teacher-profile-grid-item">
-										<span class="mkh-teacher-profile-label"><?php echo esc_html__( 'Sect', 'mkh-teacher-addon' ); ?></span>
-										<span class="mkh-teacher-profile-value"><?php echo esc_html( $sect ); ?></span>
-									</div>
-									<?php
-								endif;
-								?>
-							</div>
-						</div>
-					<?php endif; ?>
+				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Recitation Audio', 'mkh-teacher-addon' ); ?></h3>
+				<div class="mkh-teacher-profile-audio">
+					<audio controls>
+						<source src="<?php echo esc_url( $audio_url ); ?>" type="audio/mpeg" />
+						<?php echo esc_html__( 'Your browser does not support the audio element.', 'mkh-teacher-addon' ); ?>
+					</audio>
 				</div>
 			</div>
 		<?php endif; ?>
@@ -316,50 +612,55 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 				}
 			}
 			if ( $has_items ) : ?>
-				<div class="mkh-teacher-profile-section">
-					<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Employment History', 'mkh-teacher-addon' ); ?></h3>
-					<div class="mkh-teacher-profile-timeline">
-						<?php foreach ( $employment_history as $employment ) : ?>
-							<?php
-							if ( ! is_array( $employment ) ) {
-								continue;
-							}
-							$institute = $employment['institute'] ?? '';
-							$position  = $employment['position'] ?? '';
-							$from_date  = $employment['from_date'] ?? '';
-							$to_date    = $employment['to_date'] ?? '';
-							$desc        = $employment['description'] ?? '';
-							if ( empty( $institute ) && empty( $position ) && empty( $from_date ) && empty( $to_date ) && empty( $desc ) ) {
-								continue;
-							}
-							?>
-							<div class="mkh-teacher-profile-timeline-item">
-								<?php if ( ! empty( $institute ) ) : ?>
-									<h4 class="mkh-teacher-profile-timeline-title"><?php echo esc_html( $institute ); ?></h4>
-								<?php endif; ?>
-								<?php if ( ! empty( $position ) ) : ?>
-									<div class="mkh-teacher-profile-timeline-position"><?php echo esc_html( $position ); ?></div>
-								<?php endif; ?>
-								<?php if ( ! empty( $from_date ) || ! empty( $to_date ) ) : ?>
-									<div class="mkh-teacher-profile-timeline-date">
-										<?php
-										if ( ! empty( $from_date ) ) {
-											echo esc_html( date( 'F Y', strtotime( (string) $from_date ) ) );
-										}
-										if ( ! empty( $from_date ) && ! empty( $to_date ) ) {
-											echo ' — ';
-										}
-										if ( ! empty( $to_date ) ) {
-											echo esc_html( date( 'F Y', strtotime( (string) $to_date ) ) );
-										}
-										?>
-									</div>
-								<?php endif; ?>
-								<?php if ( ! empty( $desc ) ) : ?>
-									<div class="mkh-teacher-profile-timeline-description"><?php echo wp_kses_post( $desc ); ?></div>
-								<?php endif; ?>
-							</div>
-						<?php endforeach; ?>
+				<div class="mkh-teacher-profile-section mkh-accordion">
+					<h3 class="mkh-teacher-profile-section-title mkh-accordion-header" data-accordion="employment">
+						<?php echo esc_html__( 'Employment History', 'mkh-teacher-addon' ); ?>
+						<span class="mkh-accordion-icon">+</span>
+					</h3>
+					<div class="mkh-accordion-content mkh-accordion-collapsed" id="employment-content">
+						<div class="mkh-teacher-profile-timeline">
+							<?php foreach ( $employment_history as $employment ) : ?>
+								<?php
+								if ( ! is_array( $employment ) ) {
+									continue;
+								}
+								$institute = $employment['institute'] ?? '';
+								$position  = $employment['position'] ?? '';
+								$from_date  = $employment['from_date'] ?? '';
+								$to_date    = $employment['to_date'] ?? '';
+								$desc        = $employment['description'] ?? '';
+								if ( empty( $institute ) && empty( $position ) && empty( $from_date ) && empty( $to_date ) && empty( $desc ) ) {
+									continue;
+								}
+								?>
+								<div class="mkh-teacher-profile-timeline-item">
+									<?php if ( ! empty( $institute ) ) : ?>
+										<h4 class="mkh-teacher-profile-timeline-title"><?php echo esc_html( $institute ); ?></h4>
+									<?php endif; ?>
+									<?php if ( ! empty( $position ) ) : ?>
+										<div class="mkh-teacher-profile-timeline-position"><?php echo esc_html( $position ); ?></div>
+									<?php endif; ?>
+									<?php if ( ! empty( $from_date ) || ! empty( $to_date ) ) : ?>
+										<div class="mkh-teacher-profile-timeline-date">
+											<?php
+											if ( ! empty( $from_date ) ) {
+												echo esc_html( date( 'F Y', strtotime( (string) $from_date ) ) );
+											}
+											if ( ! empty( $from_date ) && ! empty( $to_date ) ) {
+												echo ' — ';
+											}
+											if ( ! empty( $to_date ) ) {
+												echo esc_html( date( 'F Y', strtotime( (string) $to_date ) ) );
+											}
+											?>
+										</div>
+									<?php endif; ?>
+									<?php if ( ! empty( $desc ) ) : ?>
+										<div class="mkh-teacher-profile-timeline-description"><?php echo wp_kses_post( $desc ); ?></div>
+									<?php endif; ?>
+								</div>
+							<?php endforeach; ?>
+						</div>
 					</div>
 				</div>
 			<?php endif; ?>
@@ -375,52 +676,57 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 				}
 			}
 			if ( $has_items ) : ?>
-				<div class="mkh-teacher-profile-section">
-					<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Certifications', 'mkh-teacher-addon' ); ?></h3>
-					<div class="mkh-teacher-profile-cards">
-						<?php foreach ( $certifications as $cert ) : ?>
-							<?php
-							if ( ! is_array( $cert ) ) {
-								continue;
-							}
-							$title     = $cert['title'] ?? '';
-							$issued_by = $cert['issued_by'] ?? '';
-							$year      = $cert['year'] ?? '';
-							$file_url  = '';
-							if ( isset( $cert['certificate_file'] ) && is_array( $cert['certificate_file'] ) && isset( $cert['certificate_file']['url'] ) ) {
-								$file_url = $cert['certificate_file']['url'];
-							}
-							$file_url = $mkh_safe_url( $file_url );
-							if ( empty( $title ) && empty( $issued_by ) && empty( $year ) && empty( $file_url ) ) {
-								continue;
-							}
-							?>
-							<div class="mkh-teacher-profile-card">
-								<?php if ( ! empty( $title ) ) : ?>
-									<h4 class="mkh-teacher-profile-card-title"><?php echo esc_html( $title ); ?></h4>
-								<?php endif; ?>
+				<div class="mkh-teacher-profile-section mkh-accordion">
+					<h3 class="mkh-teacher-profile-section-title mkh-accordion-header" data-accordion="certifications">
+						<?php echo esc_html__( 'Certifications', 'mkh-teacher-addon' ); ?>
+						<span class="mkh-accordion-icon">+</span>
+					</h3>
+					<div class="mkh-accordion-content mkh-accordion-collapsed" id="certifications-content">
+						<div class="mkh-teacher-profile-cards">
+							<?php foreach ( $certifications as $cert ) : ?>
+								<?php
+								if ( ! is_array( $cert ) ) {
+									continue;
+								}
+								$title     = $cert['title'] ?? '';
+								$issued_by = $cert['issued_by'] ?? '';
+								$year      = $cert['year'] ?? '';
+								$file_url  = '';
+								if ( isset( $cert['certificate_file'] ) && is_array( $cert['certificate_file'] ) && isset( $cert['certificate_file']['url'] ) ) {
+									$file_url = $cert['certificate_file']['url'];
+								}
+								$file_url = $mkh_safe_url( $file_url );
+								if ( empty( $title ) && empty( $issued_by ) && empty( $year ) && empty( $file_url ) ) {
+									continue;
+								}
+								?>
+								<div class="mkh-teacher-profile-card">
+									<?php if ( ! empty( $title ) ) : ?>
+										<h4 class="mkh-teacher-profile-card-title"><?php echo esc_html( $title ); ?></h4>
+									<?php endif; ?>
 
-								<?php if ( ! empty( $issued_by ) ) : ?>
-									<div class="mkh-teacher-profile-card-meta">
-										<span class="mkh-teacher-profile-label"><?php echo esc_html__( 'Issued By', 'mkh-teacher-addon' ); ?>:</span>
-										<span class="mkh-teacher-profile-value"><?php echo esc_html( $issued_by ); ?></span>
-									</div>
-								<?php endif; ?>
+									<?php if ( ! empty( $issued_by ) ) : ?>
+										<div class="mkh-teacher-profile-card-meta">
+											<span class="mkh-teacher-profile-label"><?php echo esc_html__( 'Issued By', 'mkh-teacher-addon' ); ?>:</span>
+											<span class="mkh-teacher-profile-value"><?php echo esc_html( $issued_by ); ?></span>
+										</div>
+									<?php endif; ?>
 
-								<?php if ( ! empty( $year ) ) : ?>
-									<div class="mkh-teacher-profile-card-meta">
-										<span class="mkh-teacher-profile-label"><?php echo esc_html__( 'Year', 'mkh-teacher-addon' ); ?>:</span>
-										<span class="mkh-teacher-profile-value"><?php echo esc_html( $year ); ?></span>
-									</div>
-								<?php endif; ?>
+									<?php if ( ! empty( $year ) ) : ?>
+										<div class="mkh-teacher-profile-card-meta">
+											<span class="mkh-teacher-profile-label"><?php echo esc_html__( 'Year', 'mkh-teacher-addon' ); ?>:</span>
+											<span class="mkh-teacher-profile-value"><?php echo esc_html( $year ); ?></span>
+										</div>
+									<?php endif; ?>
 
-								<?php if ( $file_url ) : ?>
-									<div class="mkh-teacher-profile-card-action">
-										<a href="<?php echo esc_url( $file_url ); ?>" target="_blank" rel="noopener" class="mkh-teacher-profile-link"><?php echo esc_html__( 'View Certificate', 'mkh-teacher-addon' ); ?></a>
-									</div>
-								<?php endif; ?>
-							</div>
-						<?php endforeach; ?>
+									<?php if ( $file_url ) : ?>
+										<div class="mkh-teacher-profile-card-action">
+											<a href="<?php echo esc_url( $file_url ); ?>" target="_blank" rel="noopener" class="mkh-teacher-profile-link"><?php echo esc_html__( 'View Certificate', 'mkh-teacher-addon' ); ?></a>
+										</div>
+									<?php endif; ?>
+								</div>
+							<?php endforeach; ?>
+						</div>
 					</div>
 				</div>
 			<?php endif; ?>
@@ -436,52 +742,57 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 				}
 			}
 			if ( $has_items ) : ?>
-				<div class="mkh-teacher-profile-section">
-					<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Ijazah', 'mkh-teacher-addon' ); ?></h3>
-					<div class="mkh-teacher-profile-cards">
-						<?php foreach ( $ijazah as $ijazah_item ) : ?>
-							<?php
-							if ( ! is_array( $ijazah_item ) ) {
-								continue;
-							}
-							$title      = $ijazah_item['title'] ?? '';
-							$granted_by = $ijazah_item['granted_by'] ?? '';
-							$date       = $ijazah_item['date'] ?? '';
-							$file_url   = '';
-							if ( isset( $ijazah_item['upload_file'] ) && is_array( $ijazah_item['upload_file'] ) && isset( $ijazah_item['upload_file']['url'] ) ) {
-								$file_url = $ijazah_item['upload_file']['url'];
-							}
-							$file_url = $mkh_safe_url( $file_url );
-							if ( empty( $title ) && empty( $granted_by ) && empty( $date ) && empty( $file_url ) ) {
-								continue;
-							}
-							?>
-							<div class="mkh-teacher-profile-card">
-								<?php if ( ! empty( $title ) ) : ?>
-									<h4 class="mkh-teacher-profile-card-title"><?php echo esc_html( $title ); ?></h4>
-								<?php endif; ?>
+				<div class="mkh-teacher-profile-section mkh-accordion">
+					<h3 class="mkh-teacher-profile-section-title mkh-accordion-header" data-accordion="ijazah">
+						<?php echo esc_html__( 'Ijazah', 'mkh-teacher-addon' ); ?>
+						<span class="mkh-accordion-icon">+</span>
+					</h3>
+					<div class="mkh-accordion-content mkh-accordion-collapsed" id="ijazah-content">
+						<div class="mkh-teacher-profile-cards">
+							<?php foreach ( $ijazah as $ijazah_item ) : ?>
+								<?php
+								if ( ! is_array( $ijazah_item ) ) {
+									continue;
+								}
+								$title      = $ijazah_item['title'] ?? '';
+								$granted_by = $ijazah_item['granted_by'] ?? '';
+								$date       = $ijazah_item['date'] ?? '';
+								$file_url   = '';
+								if ( isset( $ijazah_item['upload_file'] ) && is_array( $ijazah_item['upload_file'] ) && isset( $ijazah_item['upload_file']['url'] ) ) {
+									$file_url = $ijazah_item['upload_file']['url'];
+								}
+								$file_url = $mkh_safe_url( $file_url );
+								if ( empty( $title ) && empty( $granted_by ) && empty( $date ) && empty( $file_url ) ) {
+									continue;
+								}
+								?>
+								<div class="mkh-teacher-profile-card">
+									<?php if ( ! empty( $title ) ) : ?>
+										<h4 class="mkh-teacher-profile-card-title"><?php echo esc_html( $title ); ?></h4>
+									<?php endif; ?>
 
-								<?php if ( ! empty( $granted_by ) ) : ?>
-									<div class="mkh-teacher-profile-card-meta">
-										<span class="mkh-teacher-profile-label"><?php echo esc_html__( 'Granted By', 'mkh-teacher-addon' ); ?>:</span>
-										<span class="mkh-teacher-profile-value"><?php echo esc_html( $granted_by ); ?></span>
-									</div>
-								<?php endif; ?>
+									<?php if ( ! empty( $granted_by ) ) : ?>
+										<div class="mkh-teacher-profile-card-meta">
+											<span class="mkh-teacher-profile-label"><?php echo esc_html__( 'Granted By', 'mkh-teacher-addon' ); ?>:</span>
+											<span class="mkh-teacher-profile-value"><?php echo esc_html( $granted_by ); ?></span>
+										</div>
+									<?php endif; ?>
 
-								<?php if ( ! empty( $date ) ) : ?>
-									<div class="mkh-teacher-profile-card-meta">
-										<span class="mkh-teacher-profile-label"><?php echo esc_html__( 'Date', 'mkh-teacher-addon' ); ?>:</span>
-										<span class="mkh-teacher-profile-value"><?php echo esc_html( date( 'F Y', strtotime( (string) $date ) ) ); ?></span>
-									</div>
-								<?php endif; ?>
+									<?php if ( ! empty( $date ) ) : ?>
+										<div class="mkh-teacher-profile-card-meta">
+											<span class="mkh-teacher-profile-label"><?php echo esc_html__( 'Date', 'mkh-teacher-addon' ); ?>:</span>
+											<span class="mkh-teacher-profile-value"><?php echo esc_html( date( 'F Y', strtotime( (string) $date ) ) ); ?></span>
+										</div>
+									<?php endif; ?>
 
-								<?php if ( $file_url ) : ?>
-									<div class="mkh-teacher-profile-card-action">
-										<a href="<?php echo esc_url( $file_url ); ?>" target="_blank" rel="noopener" class="mkh-teacher-profile-link"><?php echo esc_html__( 'View Document', 'mkh-teacher-addon' ); ?></a>
-									</div>
-								<?php endif; ?>
-							</div>
-						<?php endforeach; ?>
+									<?php if ( $file_url ) : ?>
+										<div class="mkh-teacher-profile-card-action">
+											<a href="<?php echo esc_url( $file_url ); ?>" target="_blank" rel="noopener" class="mkh-teacher-profile-link"><?php echo esc_html__( 'View Document', 'mkh-teacher-addon' ); ?></a>
+										</div>
+									<?php endif; ?>
+								</div>
+							<?php endforeach; ?>
+						</div>
 					</div>
 				</div>
 			<?php endif; ?>
@@ -519,7 +830,7 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 		}
 		.mkh-teacher-profile-grid {
 			display: grid;
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 			gap: 20px;
 		}
 		.mkh-teacher-profile-grid-item {
@@ -663,6 +974,55 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 		.mkh-teacher-profile-link:hover {
 			background: #3ba2f2;
 		}
+
+		/* Accordion Styles */
+		.mkh-accordion {
+			border: 1px solid #e0e0e0;
+			border-radius: 8px;
+			margin-bottom: 20px;
+			overflow: hidden;
+		}
+		.mkh-accordion-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 15px 20px;
+			background: #f9f9f9;
+			cursor: pointer;
+			transition: background 0.3s;
+			margin-bottom: 0;
+			user-select: none;
+		}
+		.mkh-accordion-header:hover {
+			background: #f0f0f0;
+		}
+		.mkh-accordion-header:focus {
+			outline: 2px solid #273044;
+			outline-offset: -2px;
+		}
+		.mkh-accordion-icon {
+			font-size: 24px;
+			font-weight: bold;
+			color: #273044;
+			transition: transform 0.3s ease;
+		}
+		.mkh-accordion-header.active .mkh-accordion-icon {
+			transform: rotate(45deg);
+		}
+		.mkh-accordion-content {
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.3s ease-out, padding 0.3s ease;
+			padding: 0 20px;
+		}
+		.mkh-accordion-content.mkh-accordion-expanded {
+			max-height: 2000px;
+			padding: 20px;
+		}
+		.mkh-accordion-collapsed {
+			display: none;
+		}
+
 		@media (max-width: 768px) {
 			.mkh-teacher-profile-grid {
 				grid-template-columns: 1fr;
@@ -674,8 +1034,72 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 				padding: 20px;
 				margin: 20px 0;
 			}
+			.mkh-accordion-header {
+				padding: 12px 15px;
+			}
+			.mkh-accordion-content.mkh-accordion-expanded {
+				padding: 15px;
+			}
 		}
 	</style>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const accordionHeaders = document.querySelectorAll('.mkh-accordion-header');
+
+			accordionHeaders.forEach(function(header) {
+				header.addEventListener('click', function() {
+					const accordionId = this.getAttribute('data-accordion');
+					const content = document.getElementById(accordionId + '-content');
+
+					if (!content) return;
+
+					// Toggle current accordion
+					const isExpanded = content.classList.contains('mkh-accordion-expanded');
+
+					// Close all other accordions
+					document.querySelectorAll('.mkh-accordion-content').forEach(function(otherContent) {
+						if (otherContent !== content) {
+							otherContent.classList.remove('mkh-accordion-expanded');
+							otherContent.classList.add('mkh-accordion-collapsed');
+							otherContent.style.maxHeight = '0';
+							otherContent.style.padding = '0 20px';
+						}
+					});
+
+					// Reset all icons
+					document.querySelectorAll('.mkh-accordion-header').forEach(function(otherHeader) {
+						if (otherHeader !== header) {
+							otherHeader.classList.remove('active');
+						}
+					});
+
+					// Toggle current accordion
+					if (isExpanded) {
+						content.classList.remove('mkh-accordion-expanded');
+						content.classList.add('mkh-accordion-collapsed');
+						content.style.maxHeight = '0';
+						content.style.padding = '0 20px';
+						header.classList.remove('active');
+					} else {
+						content.classList.remove('mkh-accordion-collapsed');
+						content.classList.add('mkh-accordion-expanded');
+						content.style.maxHeight = content.scrollHeight + 'px';
+						content.style.padding = '20px';
+						header.classList.add('active');
+					}
+				});
+
+				// Keyboard accessibility
+				header.addEventListener('keydown', function(e) {
+					if (e.key === 'Enter' || e.key === ' ') {
+						e.preventDefault();
+						this.click();
+					}
+				});
+			});
+		});
+	</script>
 	<?php
 }
 
