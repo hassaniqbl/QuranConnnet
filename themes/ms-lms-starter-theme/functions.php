@@ -11,6 +11,12 @@ require_once STM_INCLUDES_PATH . '/enqueue.php';
 require_once STM_INCLUDES_PATH . '/comments.php';
 require_once STM_INCLUDES_PATH . '/theme-config.php';
 require_once STM_INCLUDES_PATH . '/helpers.php';
+
+// Instructor filter functionality
+require_once STM_TEMPLATE_DIR . '/inc/instructors-filter-data.php';
+require_once STM_TEMPLATE_DIR . '/inc/instructors-filter-query.php';
+require_once STM_TEMPLATE_DIR . '/inc/instructors-archive-override.php';
+require_once STM_TEMPLATE_DIR . '/inc/instructors-filter-enqueue.php';
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
