@@ -1,18 +1,13 @@
-# TODO
+# TODO: Update Basic Information Section Layout
 
-## Fix corrupted teacher profile display template
-- [ ] Restore `themes/ms-lms-starter-theme/inc/teacher-profile-public-display.php` to valid PHP/HTML.
-- [ ] Keep runtime crash guards: never use non-scalar ACF values as array offsets (fiqh/teaching_skills/language select values).
-
-## Add new MasterStudy tab: About Teacher
-- [ ] Update `themes/ms-lms-starter-theme/stm-lms-templates/stm-lms-instructor-public.php` to add third tab in `$instructor_tabs`.
-- [ ] Ensure tab content shows teacher profile info when active (reuse existing `components/tabs`).
-- [ ] Avoid breaking Courses/Reviews tabs and routing.
-
-## Verification
-- [ ] Reload instructor public profile page.
-- [ ] Confirm fatal error is gone.
-- [ ] Confirm About Teacher tab appears and renders sections.
-- [ ] Confirm empty sections are hidden.
-- [ ] Confirm avatar fallback works for teacher photo.
+## Steps
+- [x] 1. Read and understand current files
+- [x] 2. Create plan and get approval
+- [x] 3. Edit teacher-profile-public-display.php:
+  - [x] a. Replace Age + Gender sections with 2-column grid (Row 1)
+  - [x] b. Replace Country & Timezone combined section with 2-column grid (Row 2)
+  - [x] c. Replace Fiqh & Sect section with 2-column grid (Row 3)
+  - [x] d. Add responsive CSS for `.mkh-teacher-profile-two-column` mobile stacking
+  - [x] e. Add `:only-child` CSS for single-field expansion
+- [x] 4. Verify no syntax errors/regressions
 
