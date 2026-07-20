@@ -126,7 +126,7 @@ $filter_data = mkh_get_instructors_filter_data();
 				<input type="submit" value="<?php esc_attr_e( 'Show Results', 'masterstudy-lms-learning-management-system' ); ?>" class="stm_lms_instructors__filter_actions_button">
 				<a href="<?php echo esc_url( remove_query_arg( array_keys( $current_filters ) ) ); ?>" class="stm_lms_instructors__filter_actions_reset">
 					<i class="stmlms-undo2"></i>
-					<span><?php esc_html_e( 'Reset All', 'masterstudy-lms-learning-management-system' ); ?></span>
+					<span><?php esc_html_e( 'Reset', 'masterstudy-lms-learning-management-system' ); ?></span>
 				</a>
 			</div>
 		</form>

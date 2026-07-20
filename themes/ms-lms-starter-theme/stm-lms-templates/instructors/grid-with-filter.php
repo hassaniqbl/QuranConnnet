@@ -14,19 +14,21 @@ $instructor_count = count( $instructors );
 
 if ( ! empty( $instructors ) ) : ?>
 	<div class="stm_lms_instructors_wrapper">
+			<div class="stm_lms_instructors__header">
+					<h2><?php esc_html_e( 'Instructors', 'masterstudy-lms-learning-management-system' ); ?></h2>
+					<span class="stm_lms_instructors__count">
+						<?php printf( esc_html__( '%d instructors found', 'mkh-teacher-addon' ), intval( $instructor_count ) ); ?>
+					</span>
+				</div>
 		<div class="stm_lms_instructors__archive_wrapper">
+			
 			<?php
 			// Include filter sidebar
 			STM_LMS_Templates::show_lms_template( 'instructors/filter/main' );
 			?>
 			
 			<div class="stm_lms_instructors stm_lms_instructors__archive filter_enabled">
-				<div class="stm_lms_instructors__header">
-					<h2><?php esc_html_e( 'Instructors', 'masterstudy-lms-learning-management-system' ); ?></h2>
-					<span class="stm_lms_instructors__count">
-						<?php printf( esc_html__( '%d instructors found', 'mkh-teacher-addon' ), intval( $instructor_count ) ); ?>
-					</span>
-				</div>
+			
 				
 				<div class="stm_lms_instructors__grid">
 					<?php

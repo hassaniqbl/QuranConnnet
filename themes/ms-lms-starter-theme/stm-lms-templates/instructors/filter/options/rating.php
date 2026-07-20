@@ -17,20 +17,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 	<div class="stm_lms_instructors__filter_options_item_content">
 		<?php foreach ( $options as $rating ) : ?>
-			<label class="stm_lms_instructors__filter_options_item_category">
-				<span class="stm_lms_instructors__filter_options_item_radio">
-					<input type="radio" name="rating" value="<?php echo floatval( $rating['rate'] ); ?>" <?php checked( floatval( $rating['rate'] ) === $current_value ); ?>>
-					<span class="stm_lms_instructors__filter_options_item_radio_fake"></span>
-				</span>
-				<div class="stm_lms_instructors__filter_options_item_rating">
-					<div class="stm_lms_instructors__filter_options_item_rating_stars">
-						<div class="stm_lms_instructors__filter_options_item_rating_stars_filled" style="width: <?php echo esc_attr( round( $rating['rate'] * 100 / 5, 2 ) ); ?>%;"></div>
-					</div>
-					<div class="stm_lms_instructors__filter_options_item_rating_quantity">
-						<span><?php echo esc_html( $rating['label'] ); ?></span>
-					</div>
-				</div>
-			</label>
+			<div class="stm_lms_instructors__filter_options_item_category">
+				<label class="stm_lms_instructors__filter_options_item_radio">
+					<span class="stm_lms_instructors__filter_options_item_radio_inner">
+						<input type="radio" name="rating" value="<?php echo floatval( $rating['rate'] ); ?>" <?php checked( floatval( $rating['rate'] ) === $current_value ); ?>>
+						<span class="stm_lms_instructors__filter_options_item_radio_fake"></span>
+					</span>
+					<span class="stm_lms_instructors__filter_options_item_radio_label"><?php echo esc_html( $rating['label'] ); ?></span>
+				</label>
+			</div>
 		<?php endforeach; ?>
 	</div>
 </div>

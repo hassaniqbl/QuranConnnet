@@ -135,7 +135,7 @@ if ( $q->have_posts() ) :
 		</p>
 		<a href="<?php echo esc_attr( get_permalink( STM_LMS_Options::courses_page() ) ); ?>" class="stm_lms_courses__filter_reset">
 			<i class="stmlms-refresh-2"></i>
-			<span><?php esc_html_e( 'Reset all', 'masterstudy-lms-learning-management-system' ); ?></span>
+			<span><?php esc_html_e( 'Reset', 'masterstudy-lms-learning-management-system' ); ?></span>
 		</a>
 	</div>
 	<?php if ( empty( $args['isAjax'] ) ) : ?>

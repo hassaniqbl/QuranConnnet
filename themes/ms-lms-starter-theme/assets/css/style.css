@@ -20,6 +20,17 @@
     height: 20px;
     width: 20px;
 } */
+ .stm_lms_instructors__header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #263145;
+    font-family: "Montserrat", Sans-serif;
+    font-weight: 700;
+    color: #001931;
+    font-size: 40px;
+}
+
 .stm_lms_instructors_wrapper {
 	margin-top: 55px;
 	margin-bottom: 30px;
@@ -39,7 +50,7 @@
 /* Filter sidebar - matching Courses Archive filter styling */
 .stm_lms_instructors__filter_wrapper {
 	width: 280px;
-	margin: 28px 20px 20px 0;
+	margin: 0px 20px 20px 0;
 	flex-shrink: 0;
 }
 
@@ -268,7 +279,7 @@ span.stm_lms_instructors__filter_options_item_radio_label {
 }
 
 /* Rating display */
-.stm_lms_instructors__filter_options_item_rating {
+/* .stm_lms_instructors__filter_options_item_rating {
 	display: flex;
 	align-items: center;
 	gap: 10px;
@@ -296,7 +307,7 @@ span.stm_lms_instructors__filter_options_item_radio_label {
 .stm_lms_instructors__filter_options_item_rating_quantity span {
 	font-size: 14px;
 	color: #263145;
-}
+} */
 
 /* Price range inputs */
 .stm_lms_instructors__filter_options_item_price_inputs {
@@ -426,18 +437,13 @@ span.stm_lms_instructors__filter_options_item_radio_label {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 	padding-bottom: 15px;
 	border-bottom: 1px solid #eef0f2;
 	width: 100%;
 }
 
-.stm_lms_instructors__header h2 {
-	margin: 0;
-	font-size: 24px;
-	font-weight: 600;
-	color: #263145;
-}
+
 
 .stm_lms_instructors__count {
 	font-size: 14px;
@@ -565,9 +571,12 @@ span.stm_lms_instructors__filter_options_item_radio_label {
 .stm_lms_instructors__filter_wrapper,
 .stm_lms_instructors__archive,
 .stm_lms_instructors__grid {
-	overflow-x: hidden;
+	overflow-x: visible;
 	box-sizing: border-box;
 }
+/* .stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructors__single {
+    box-shadow: 0 10px 17.8px 2.2px rgba(0, 0, 0, .18);
+} */
 
 /* Ensure proper spacing and alignment */
 .stm_lms_instructors__grid .stm_lms_instructors__single {

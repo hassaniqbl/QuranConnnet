@@ -252,37 +252,6 @@
 	line-height: 1.4;
 }
 
-/* Rating display */
-.stm_lms_instructors__filter_options_item_rating {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-}
-
-.stm_lms_instructors__filter_options_item_rating_stars {
-	position: relative;
-	width: 80px;
-	height: 16px;
-	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 16"><path fill="%23dfe1e5" d="M8 0l2.5 5h5.5l-4.5 3.5 1.5 5.5-4.5-3.5-4.5 3.5 1.5-5.5-4.5-3.5h5.5z"/><path fill="%23dfe1e5" d="M24 0l2.5 5h5.5l-4.5 3.5 1.5 5.5-4.5-3.5-4.5 3.5 1.5-5.5-4.5-3.5h5.5z"/><path fill="%23dfe1e5" d="M40 0l2.5 5h5.5l-4.5 3.5 1.5 5.5-4.5-3.5-4.5 3.5 1.5-5.5-4.5-3.5h5.5z"/><path fill="%23dfe1e5" d="M56 0l2.5 5h5.5l-4.5 3.5 1.5 5.5-4.5-3.5-4.5 3.5 1.5-5.5-4.5-3.5h5.5z"/><path fill="%23dfe1e5" d="M72 0l2.5 5h5.5l-4.5 3.5 1.5 5.5-4.5-3.5-4.5 3.5 1.5-5.5-4.5-3.5h5.5z"/></svg>') no-repeat center;
-	background-size: contain;
-}
-
-.stm_lms_instructors__filter_options_item_rating_stars_filled {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 80px;
-	height: 16px;
-	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 16"><path fill="%23ffc107" d="M8 0l2.5 5h5.5l-4.5 3.5 1.5 5.5-4.5-3.5-4.5 3.5 1.5-5.5-4.5-3.5h5.5z"/><path fill="%23ffc107" d="M24 0l2.5 5h5.5l-4.5 3.5 1.5 5.5-4.5-3.5-4.5 3.5 1.5-5.5-4.5-3.5h5.5z"/><path fill="%23ffc107" d="M40 0l2.5 5h5.5l-4.5 3.5 1.5 5.5-4.5-3.5-4.5 3.5 1.5-5.5-4.5-3.5h5.5z"/><path fill="%23ffc107" d="M56 0l2.5 5h5.5l-4.5 3.5 1.5 5.5-4.5-3.5-4.5 3.5 1.5-5.5-4.5-3.5h5.5z"/><path fill="%23ffc107" d="M72 0l2.5 5h5.5l-4.5 3.5 1.5 5.5-4.5-3.5-4.5 3.5 1.5-5.5-4.5-3.5h5.5z"/></svg>') no-repeat center;
-	background-size: contain;
-	transition: width 0.3s ease;
-}
-
-.stm_lms_instructors__filter_options_item_rating_quantity span {
-	font-size: 14px;
-	color: #263145;
-}
-
 /* Price range inputs */
 .stm_lms_instructors__filter_options_item_price_inputs {
 	display: flex;
