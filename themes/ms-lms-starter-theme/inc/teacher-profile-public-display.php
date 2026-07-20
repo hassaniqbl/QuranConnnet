@@ -372,28 +372,33 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 	<div class="mkh-teacher-profile-public">
 		<?php if ( $about_teacher ) : ?>
 			<div class="mkh-teacher-profile-section">
-				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'About Teacher', 'mkh-teacher-addon' ); ?></h3>
+				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Introduction', 'mkh-teacher-addon' ); ?></h3>
 				<div class="mkh-teacher-profile-content"><?php echo wp_kses_post( $about_teacher ); ?></div>
 			</div>
 		<?php endif; ?>
 
-		<?php if ( ! empty( $age ) ) : ?>
-			<div class="mkh-teacher-profile-section">
-				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Age', 'mkh-teacher-addon' ); ?></h3>
-				<div class="mkh-teacher-profile-content">
-					<span class="mkh-teacher-profile-value"><?php echo esc_html( $age ); ?> <?php echo esc_html__( 'Years', 'mkh-teacher-addon' ); ?></span>
-				</div>
-			</div>
-		<?php endif; ?>
-
 		<?php
+		// Row 1: Age | Gender (2-column)
+		$has_age    = ! empty( $age );
 		$gender_key = $mkh_select_value( $gender );
-		if ( $gender_key && isset( $gender_labels[ $gender_key ] ) ) :
+		$has_gender = $gender_key && isset( $gender_labels[ $gender_key ] );
+		if ( $has_age || $has_gender ) :
 			?>
 			<div class="mkh-teacher-profile-section">
-				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Gender', 'mkh-teacher-addon' ); ?></h3>
-				<div class="mkh-teacher-profile-content">
-					<span class="mkh-teacher-profile-value"><?php echo esc_html( $gender_labels[ $gender_key ] ); ?></span>
+				
+				<div class="mkh-teacher-profile-two-column">
+					<?php if ( $has_age ) : ?>
+						<div class="mkh-teacher-profile-column">
+							<span class="mkh-teacher-profile-label"><?php echo esc_html__( 'Age', 'mkh-teacher-addon' ); ?></span>
+							<span class="mkh-teacher-profile-value"><?php echo esc_html( $age ); ?> <?php echo esc_html__( 'Years', 'mkh-teacher-addon' ); ?></span>
+						</div>
+					<?php endif; ?>
+					<?php if ( $has_gender ) : ?>
+						<div class="mkh-teacher-profile-column">
+							<span class="mkh-teacher-profile-label"><?php echo esc_html__( 'Gender', 'mkh-teacher-addon' ); ?></span>
+							<span class="mkh-teacher-profile-value"><?php echo esc_html( $gender_labels[ $gender_key ] ); ?></span>
+						</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		<?php endif; ?>
@@ -422,64 +427,61 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 		<?php endif; ?>
 
 		<?php
-		// Country and Timezone - display on same row
-		$country_name = $mkh_country_name( $mkh_select_value( $country ) );
+		// Row 2: Country | Timezone (2-column)
+		$country_name   = $mkh_country_name( $mkh_select_value( $country ) );
 		$timezone_value = $mkh_select_value( $timezone );
-		if ( $country_name || $timezone_value ) :
+		$has_country    = ! empty( $country_name );
+		$has_timezone   = ! empty( $timezone_value );
+		if ( $has_country || $has_timezone ) :
 			?>
 			<div class="mkh-teacher-profile-section">
-				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Country & Timezone', 'mkh-teacher-addon' ); ?></h3>
-				<div class="mkh-teacher-profile-content">
-					<span class="mkh-teacher-profile-value">
-						<?php
-						if ( $country_name && $timezone_value ) {
-							echo esc_html( $country_name ) . ' • ' . esc_html( $timezone_value );
-						} elseif ( $country_name ) {
-							echo esc_html( $country_name );
-						} elseif ( $timezone_value ) {
-							echo esc_html( $timezone_value );
-						}
-						?>
-					</span>
+				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Location', 'mkh-teacher-addon' ); ?></h3>
+				<div class="mkh-teacher-profile-two-column">
+					<?php if ( $has_country ) : ?>
+						<div class="mkh-teacher-profile-column">
+							<span class="mkh-teacher-profile-label"><?php echo esc_html__( 'Country', 'mkh-teacher-addon' ); ?></span>
+							<span class="mkh-teacher-profile-value"><?php echo esc_html( $country_name ); ?></span>
+						</div>
+					<?php endif; ?>
+					<?php if ( $has_timezone ) : ?>
+						<div class="mkh-teacher-profile-column">
+							<span class="mkh-teacher-profile-label"><?php echo esc_html__( 'Timezone', 'mkh-teacher-addon' ); ?></span>
+							<span class="mkh-teacher-profile-value"><?php echo esc_html( $timezone_value ); ?></span>
+						</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		<?php endif; ?>
 
 		<?php
-		// Fiqh & Sect
+		// Row 3: Fiqh | Sect (2-column)
 		$fiqh_key = $mkh_select_value( $fiqh );
-		if ( $fiqh_key && isset( $fiqh_labels[ $fiqh_key ] ) || ( is_scalar( $sect ) && $sect ) ) :
+		$has_fiqh = $fiqh_key && isset( $fiqh_labels[ $fiqh_key ] );
+		$has_sect = is_scalar( $sect ) && $sect;
+		if ( $has_fiqh || $has_sect ) :
 			?>
 			<div class="mkh-teacher-profile-section">
-				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Fiqh & Sect', 'mkh-teacher-addon' ); ?></h3>
-				<div class="mkh-teacher-profile-grid">
-					<?php
-					$fiqh_key = $mkh_select_value( $fiqh );
-					if ( $fiqh_key && isset( $fiqh_labels[ $fiqh_key ] ) ) :
-						?>
-						<div class="mkh-teacher-profile-grid-item">
+				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Islamic Background', 'mkh-teacher-addon' ); ?></h3>
+				<div class="mkh-teacher-profile-two-column">
+					<?php if ( $has_fiqh ) : ?>
+						<div class="mkh-teacher-profile-column">
 							<span class="mkh-teacher-profile-label"><?php echo esc_html__( 'Fiqh', 'mkh-teacher-addon' ); ?></span>
 							<span class="mkh-teacher-profile-value"><?php echo esc_html( $fiqh_labels[ $fiqh_key ] ); ?></span>
 						</div>
-						<?php
-					endif;
-
-					if ( is_scalar( $sect ) && $sect ) :
-						?>
-						<div class="mkh-teacher-profile-grid-item">
+					<?php endif; ?>
+					<?php if ( $has_sect ) : ?>
+						<div class="mkh-teacher-profile-column">
 							<span class="mkh-teacher-profile-label"><?php echo esc_html__( 'Sect', 'mkh-teacher-addon' ); ?></span>
 							<span class="mkh-teacher-profile-value"><?php echo esc_html( $sect ); ?></span>
 						</div>
-						<?php
-					endif;
-					?>
+					<?php endif; ?>
 				</div>
 			</div>
 		<?php endif; ?>
 
 		<?php if ( $teaching_skills && is_array( $teaching_skills ) ) : ?>
 			<div class="mkh-teacher-profile-section">
-				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Teaching Skills', 'mkh-teacher-addon' ); ?></h3>
+				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Quran Courses', 'mkh-teacher-addon' ); ?></h3>
 				<div class="mkh-teacher-profile-skills">
 					<?php foreach ( $teaching_skills as $skill ) : ?>
 						<?php
@@ -846,6 +848,9 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 		.mkh-teacher-profile-column {
 			min-width: 0;
 		}
+		.mkh-teacher-profile-column:only-child {
+			grid-column: 1 / -1;
+		}
 		.mkh-teacher-profile-label {
 			display: block;
 			font-size: 13px;
@@ -1028,6 +1033,9 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 				grid-template-columns: 1fr;
 			}
 			.mkh-teacher-profile-cards {
+				grid-template-columns: 1fr;
+			}
+			.mkh-teacher-profile-two-column {
 				grid-template-columns: 1fr;
 			}
 			.mkh-teacher-profile-public {
