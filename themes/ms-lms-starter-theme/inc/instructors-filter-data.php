@@ -118,11 +118,9 @@ function mkh_get_instructors_filter_data() {
 		}
 	}
 
-	// Calculate min/max rates
-	if ( ! empty( $hourly_rates ) ) {
-		$filter_data['min_rate'] = min( $hourly_rates );
-		$filter_data['max_rate'] = max( $hourly_rates );
-	}
+	// Calculate min/max rates - fixed to 0-100 range as required
+	$filter_data['min_rate'] = 0;
+	$filter_data['max_rate'] = 100;
 
 	return $filter_data;
 }

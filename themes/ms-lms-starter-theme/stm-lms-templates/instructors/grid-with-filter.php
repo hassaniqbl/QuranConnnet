@@ -7,23 +7,20 @@
  * @package MS_LMS_Starter_Theme
  */
 
-stm_lms_register_style( 'user' );
-stm_lms_register_style( 'instructors_grid' );
-
 // Get filtered instructors
 $instructors = mkh_get_filtered_instructors();
 $instructor_public = STM_LMS_Options::get_option( 'instructor_public_profile', true );
 $instructor_count = count( $instructors );
 
 if ( ! empty( $instructors ) ) : ?>
-	<div class="stm_lms_instructors_with_filter_wrapper">
-		<div class="stm_lms_instructors_with_filter">
+	<div class="stm_lms_instructors_wrapper">
+		<div class="stm_lms_instructors__archive_wrapper">
 			<?php
 			// Include filter sidebar
 			STM_LMS_Templates::show_lms_template( 'instructors/filter/main' );
 			?>
 			
-			<div class="stm_lms_instructors_with_filter_content">
+			<div class="stm_lms_instructors stm_lms_instructors__archive filter_enabled">
 				<div class="stm_lms_instructors__header">
 					<h2><?php esc_html_e( 'Instructors', 'masterstudy-lms-learning-management-system' ); ?></h2>
 					<span class="stm_lms_instructors__count">
@@ -79,14 +76,14 @@ if ( ! empty( $instructors ) ) : ?>
 		</div>
 	</div>
 <?php else : ?>
-	<div class="stm_lms_instructors_with_filter_wrapper">
-		<div class="stm_lms_instructors_with_filter">
+	<div class="stm_lms_instructors_wrapper">
+		<div class="stm_lms_instructors__archive_wrapper">
 			<?php
 			// Include filter sidebar even when no results
 			STM_LMS_Templates::show_lms_template( 'instructors/filter/main' );
 			?>
 			
-			<div class="stm_lms_instructors_with_filter_content">
+			<div class="stm_lms_instructors stm_lms_instructors__archive filter_enabled">
 				<div class="stm_lms_instructors__header">
 					<h2><?php esc_html_e( 'Instructors', 'masterstudy-lms-learning-management-system' ); ?></h2>
 					<span class="stm_lms_instructors__count">

@@ -30,6 +30,11 @@
 
 		// Initialize - collapse all filter items except first one
 		$('.stm_lms_instructors__filter_options_item:not(:first)').addClass('collapsed');
+
+		// Ensure proper form state on page load
+		$('.stm_lms_instructors__filter_form input:checked').each(function() {
+			$(this).closest('.stm_lms_instructors__filter_options_item').removeClass('collapsed');
+		});
 	});
 
 })(jQuery);
