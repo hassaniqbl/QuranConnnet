@@ -403,29 +403,56 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 			</div>
 		<?php endif; ?>
 
-		<?php if ( $languages && is_array( $languages ) ) : ?>
+		<?php
+		$has_languages = $languages && is_array( $languages );
+		$has_skills    = $teaching_skills && is_array( $teaching_skills );
+		if ( $has_languages || $has_skills ) :
+			?>
 			<div class="mkh-teacher-profile-section">
-				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Languages', 'mkh-teacher-addon' ); ?></h3>
-				<div class="mkh-teacher-profile-languages">
-					<?php
-					$rendered = false;
-					foreach ( $languages as $lang ) {
-						$lang_key = $mkh_select_value( $lang );
-						if ( $lang_key && isset( $language_labels[ $lang_key ] ) ) {
-							$rendered = true;
-							?>
-							<span class="mkh-teacher-profile-badge"><?php echo esc_html( $language_labels[ $lang_key ] ); ?></span>
-							<?php
-						}
-					}
-					?>
-					<?php if ( ! $rendered ) : ?>
-						<?php // Hide if nothing valid. ?>
+				<div class="mkh-teacher-profile-two-column">
+					<?php if ( $has_languages ) : ?>
+						<div class="mkh-teacher-profile-column">
+							<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Languages', 'mkh-teacher-addon' ); ?></h3>
+							<div class="mkh-teacher-profile-languages">
+								<?php
+								$rendered = false;
+								foreach ( $languages as $lang ) {
+									$lang_key = $mkh_select_value( $lang );
+									if ( $lang_key && isset( $language_labels[ $lang_key ] ) ) {
+										$rendered = true;
+										?>
+										<span class="mkh-teacher-profile-badge"><?php echo esc_html( $language_labels[ $lang_key ] ); ?></span>
+										<?php
+									}
+								}
+								?>
+							</div>
+						</div>
+					<?php endif; ?>
+					<?php if ( $has_skills ) : ?>
+						<div class="mkh-teacher-profile-column">
+							<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Quran Courses', 'mkh-teacher-addon' ); ?></h3>
+							<div class="mkh-teacher-profile-skills">
+								<?php foreach ( $teaching_skills as $skill ) : ?>
+									<?php
+										$skill_key = $mkh_select_value( $skill );
+										if ( $skill_key && isset( $skill_labels[ $skill_key ] ) ) :
+											?>
+											<span class="mkh-teacher-profile-badge mkh-teacher-profile-badge-skill">
+												<span class="mkh-teacher-profile-check">✓</span>
+												<?php echo esc_html( $skill_labels[ $skill_key ] ); ?>
+											</span>
+											<?php
+										endif;
+										?>
+								<?php endforeach; ?>
+							</div>
+						</div>
 					<?php endif; ?>
 				</div>
 			</div>
 		<?php endif; ?>
-
+				
 		<?php
 		// Row 2: Country | Timezone (2-column)
 		$country_name   = $mkh_country_name( $mkh_select_value( $country ) );
@@ -479,27 +506,7 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 			</div>
 		<?php endif; ?>
 
-		<?php if ( $teaching_skills && is_array( $teaching_skills ) ) : ?>
-			<div class="mkh-teacher-profile-section">
-				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Quran Courses', 'mkh-teacher-addon' ); ?></h3>
-				<div class="mkh-teacher-profile-skills">
-					<?php foreach ( $teaching_skills as $skill ) : ?>
-						<?php
-							$skill_key = $mkh_select_value( $skill );
-							if ( $skill_key && isset( $skill_labels[ $skill_key ] ) ) :
-								?>
-								<span class="mkh-teacher-profile-badge mkh-teacher-profile-badge-skill">
-									<span class="mkh-teacher-profile-check">✓</span>
-									<?php echo esc_html( $skill_labels[ $skill_key ] ); ?>
-								</span>
-								<?php
-							endif;
-							?>
-					<?php endforeach; ?>
-				</div>
-			</div>
-		<?php endif; ?>
-
+	
 		<?php if ( ! empty( $hourly_rate ) ) : ?>
 			<div class="mkh-teacher-profile-section">
 				<h3 class="mkh-teacher-profile-section-title"><?php echo esc_html__( 'Hourly Rate', 'mkh-teacher-addon' ); ?></h3>

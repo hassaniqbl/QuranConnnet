@@ -20,6 +20,13 @@
     height: 20px;
     width: 20px;
 } */
+ li.masterstudy-tabs__item[data-id="courses"],li.masterstudy-tabs__item[data-id="reviews"]{
+    background: #f5f5f5 !important;
+    color: #273044 !important;
+    padding: 25px 40px !important;
+    border-radius: 50px !important;
+    font-weight: 500 !important;
+}
  .stm_lms_instructors__header h2 {
     margin: 0;
     font-size: 24px;
@@ -593,16 +600,30 @@ span.stm_lms_instructors__filter_options_item_radio_label {
 .stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructors__single {
 	background: #fff;
 	text-align: center;
-	border: 1px solid transparent;
+	border: 1px solid #ddd;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .18), inset 0 3px 0 0 rgba(25, 94, 200, .004);
+        width: 32.3%;
 }
-
+.stm_lms_instructors__archive .stm_lms_instructors__grid {
+       justify-content: normal;
+    gap: 16px;
+}
+.masterstudy-instructor-public__about-section {
+    padding-top: 0 !important;
+}
 .stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructors__single .stm_lms_user_side h3 {
 	font-size: 18px;
 	font-weight: 600;
 	color: #263145;
 	margin-bottom: 5px;
 }
-
+.masterstudy-instructor-public__about-section {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: none;
+}
 .stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructors__single .stm_lms_user_side h5 {
 	font-size: 14px;
 	font-weight: 400;

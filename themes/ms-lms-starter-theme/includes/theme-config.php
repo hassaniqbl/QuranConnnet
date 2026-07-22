@@ -12,7 +12,7 @@ function starter_color_styles() {
 	:root {
 		--container_width: <?php echo esc_attr( ( ! empty( get_theme_mod( 'ms_lms_starter_container_width', '' ) ) ) ? get_theme_mod( 'ms_lms_starter_container_width', '' ) . 'px' : '1200px' ); ?>;
 		--primary_color: <?php echo esc_attr( ( ! empty( get_theme_mod( 'ms_lms_starter_primary_color', '' ) ) ) ? get_theme_mod( 'ms_lms_starter_primary_color', '' ) : '#303441' ); ?>;
-		--accent_color: <?php echo esc_attr( ( ! empty( get_theme_mod( 'ms_lms_starter_accent_color', '' ) ) ) ? get_theme_mod( 'ms_lms_starter_accent_color', '' ) : '#385bce' ); ?>;
+		--accent_color: <?php echo esc_attr( ( ! empty( get_theme_mod( 'ms_lms_starter_primary_color', '' ) ) ) ? get_theme_mod( 'ms_lms_starter_primary_color', '' ) : '#303441' ); ?>;
 		--second_accent_color: <?php echo esc_attr( ( ! empty( get_theme_mod( 'ms_lms_starter_accent_second_color', '' ) ) ) ? get_theme_mod( 'ms_lms_starter_accent_second_color', '' ) : '#43C370' ); ?>;
 		--body_font_family: <?php echo esc_attr( ( ! empty( get_theme_mod( 'ms_lms_starter_body_font', '' ) ) ) ? get_theme_mod( 'ms_lms_starter_body_font', '' ) : 'Open Sans' ); ?>;
 		--body_font_size: <?php echo esc_attr( ( ! empty( get_theme_mod( 'ms_lms_starter_body_font_size', '' ) ) ) ? get_theme_mod( 'ms_lms_starter_body_font_size', '' ) . 'px' : '14px' ); ?>;
