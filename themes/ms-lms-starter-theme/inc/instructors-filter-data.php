@@ -153,6 +153,8 @@ function mkh_get_skill_label( $skill ) {
 		'hifz'       => esc_html__( 'Hifz', 'mkh-teacher-addon' ),
 		'arabic'     => esc_html__( 'Arabic', 'mkh-teacher-addon' ),
 		'tajweed'    => esc_html__( 'Tajweed', 'mkh-teacher-addon' ),
+		'quran'      => esc_html__( 'Quran', 'mkh-teacher-addon' ),
+		'islamic_studies' => esc_html__( 'Islamic Studies', 'mkh-teacher-addon' ),
 	);
 
 	return isset( $labels[ $skill ] ) ? $labels[ $skill ] : $skill;
