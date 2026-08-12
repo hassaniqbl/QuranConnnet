@@ -26,6 +26,13 @@
 		$('.stm_lms_instructors__filter_form').on('submit', function(e) {
 			e.preventDefault();
 
+			// Check if instructorFilter is defined
+			if (typeof instructorFilter === 'undefined') {
+				console.error('MKH Instructor Filter - instructorFilter object not defined');
+				alert('Filter system not properly initialized. Please refresh the page.');
+				return;
+			}
+
 			var $form = $(this);
 			var $grid = $('.stm_lms_instructors__archive.filter_enabled');
 			var $header = $grid.find('.stm_lms_instructors__header');
@@ -51,46 +58,73 @@
 				}
 			});
 
-			// Add nonce
+			// Add nonce and action
 			filters.nonce = instructorFilter.nonce;
 			filters.action = 'mkh_instructor_filter';
-
-			// Debug: Log the complete payload
-			console.log('MKH Instructor Filter - Form data:', formData);
-			console.log('MKH Instructor Filter - Filters object:', filters);
-			console.log('MKH Instructor Filter - AJAX URL:', instructorFilter.ajaxUrl);
 
 			// AJAX request
 			$.ajax({
 				url: instructorFilter.ajaxUrl,
 				type: 'POST',
+				dataType: 'json',
 				data: filters,
 				beforeSend: function() {
 					$grid.find('.stm_lms_instructors__grid').css('opacity', '0.5');
 				},
 				success: function(response) {
-					console.log('MKH Instructor Filter - AJAX response:', response);
-					if (response.success) {
-						console.log('MKH Instructor Filter - Response HTML length:', response.data.html ? response.data.html.length : 0);
-						console.log('MKH Instructor Filter - Response count:', response.data.count);
-						// Update the grid content
-						$grid.find('.stm_lms_instructors__grid').remove();
-						$grid.find('.stm_lms_instructors__no_results').remove();
-						$header.after(response.data.html);
+					console.log('AJAX Response:', response);
+
+					if (response.success && response.data && response.data.html !== undefined) {
+						const html = response.data.html;
+						const count = response.data.count;
+
+						console.log('HTML:', html);
+						console.log('Count:', count);
+
+						// Target the correct grid container
+						const $instructorGrid = $grid.find('.stm_lms_instructors__grid');
+						const $noResults = $grid.find('.stm_lms_instructors__no_results');
+
+						console.log('Instructor grid element:', $instructorGrid.length);
+						console.log('No results element:', $noResults.length);
+
+						// Remove existing no results message
+						$noResults.remove();
+
+						// Replace the grid content
+						if ($instructorGrid.length) {
+							// Replace existing grid with new HTML
+							$instructorGrid.replaceWith(html);
+							console.log('Replaced existing grid');
+						} else {
+							// Insert new grid after header if no grid exists
+							$header.after(html);
+							console.log('Inserted new grid after header');
+						}
+
+						// Verify the insertion
+						const $newGrid = $grid.find('.stm_lms_instructors__grid');
+						const cardCount = $newGrid.find('.stm_lms_instructors__single').length;
+						console.log('New grid element:', $newGrid.length);
+						console.log('Cards after insertion:', cardCount);
 
 						// Update the count
-						$countSpan.text(response.data.count + ' teachers found');
+						$countSpan.text(count + ' teachers found');
 
-						// Update URL without reload
-						var queryString = $.param(filters);
+						// Update URL without reload (remove nonce and action from URL)
+						var urlFilters = $.extend({}, filters);
+						delete urlFilters.nonce;
+						delete urlFilters.action;
+						var queryString = $.param(urlFilters);
 						history.pushState(null, null, '?' + queryString);
 					} else {
-						console.error('Filter error:', response.data.message);
+						console.error('Filter error:', response);
+						alert('Filter error: ' + (response.data && response.data.message ? response.data.message : 'Unknown error'));
 					}
 				},
 				error: function(xhr, status, error) {
-					console.error('AJAX error:', error);
-					console.error('AJAX response text:', xhr.responseText);
+					console.error('AJAX Error:', xhr, status, error);
+					alert('There was an error processing your request. Please try again.');
 				},
 				complete: function() {
 					$grid.removeClass('loading');
@@ -118,7 +152,10 @@
 			$('#rate_min').val($('.stm_lms_instructors__filter_form #rate_min').attr('min') || 0);
 			$('#rate_max').val($('.stm_lms_instructors__filter_form #rate_max').attr('max') || 100);
 			
-			// Submit the form to reset results
+			// Clear URL parameters
+			history.pushState(null, null, window.location.pathname);
+			
+			// Submit the form to reset results via AJAX
 			$('.stm_lms_instructors__filter_form').trigger('submit');
 		});
 

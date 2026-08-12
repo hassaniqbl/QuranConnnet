@@ -94,13 +94,35 @@ function mkh_get_filtered_instructors( $filters = array() ) {
 			$instructor_skills = get_field( 'teaching_skills', 'user_' . $user_id );
 			$custom_subjects = get_field( 'mkh_subjects', 'user_' . $user_id );
 			
-			// Combine both skills and custom subjects
+			// Combine both skills and custom subjects, normalizing to array of values
 			$all_subjects = array();
-			if ( ! empty( $instructor_skills ) && is_array( $instructor_skills ) ) {
-				$all_subjects = array_merge( $all_subjects, $instructor_skills );
+			
+			// Process teaching skills - handle both string and array return formats
+			if ( ! empty( $instructor_skills ) ) {
+				if ( is_array( $instructor_skills ) ) {
+					foreach ( $instructor_skills as $skill ) {
+						$skill_value = is_array( $skill ) ? $skill['value'] : $skill;
+						if ( ! empty( $skill_value ) ) {
+							$all_subjects[] = $skill_value;
+						}
+					}
+				} else {
+					$all_subjects[] = $instructor_skills;
+				}
 			}
-			if ( ! empty( $custom_subjects ) && is_array( $custom_subjects ) ) {
-				$all_subjects = array_merge( $all_subjects, $custom_subjects );
+			
+			// Process custom subjects - handle both string and array return formats
+			if ( ! empty( $custom_subjects ) ) {
+				if ( is_array( $custom_subjects ) ) {
+					foreach ( $custom_subjects as $subject ) {
+						$subject_value = is_array( $subject ) ? $subject['value'] : $subject;
+						if ( ! empty( $subject_value ) ) {
+							$all_subjects[] = $subject_value;
+						}
+					}
+				} else {
+					$all_subjects[] = $custom_subjects;
+				}
 			}
 			
 			$has_matching_skill = false;
@@ -120,10 +142,26 @@ function mkh_get_filtered_instructors( $filters = array() ) {
 		// Languages filter
 		if ( ! empty( $languages ) && $include_instructor ) {
 			$instructor_languages = get_field( 'languages', 'user_' . $user_id );
+			
+			// Normalize languages to array of values
+			$all_languages = array();
+			if ( ! empty( $instructor_languages ) ) {
+				if ( is_array( $instructor_languages ) ) {
+					foreach ( $instructor_languages as $language ) {
+						$language_value = is_array( $language ) ? $language['value'] : $language;
+						if ( ! empty( $language_value ) ) {
+							$all_languages[] = $language_value;
+						}
+					}
+				} else {
+					$all_languages[] = $instructor_languages;
+				}
+			}
+			
 			$has_matching_language = false;
-			if ( ! empty( $instructor_languages ) && is_array( $instructor_languages ) ) {
+			if ( ! empty( $all_languages ) ) {
 				foreach ( $languages as $filter_language ) {
-					if ( in_array( $filter_language, $instructor_languages, true ) ) {
+					if ( in_array( $filter_language, $all_languages, true ) ) {
 						$has_matching_language = true;
 						break;
 					}
@@ -188,9 +226,6 @@ function mkh_get_filtered_instructors( $filters = array() ) {
  * AJAX handler for instructor filtering
  */
 function mkh_instructor_filter_ajax() {
-	// Debug: Log incoming POST data
-	error_log( 'MKH Instructor Filter - POST data: ' . print_r( $_POST, true ) );
-
 	// Verify nonce
 	if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'instructor_filter_nonce' ) ) {
 		wp_send_json_error( array( 'message' => 'Invalid nonce' ) );
@@ -199,27 +234,27 @@ function mkh_instructor_filter_ajax() {
 	// Sanitize and get filter parameters
 	$filters = array(
 		'gender'   => isset( $_POST['gender'] ) ? sanitize_text_field( wp_unslash( $_POST['gender'] ) ) : '',
-		'ijazah'   => isset( $_POST['ijazah'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['ijazah'] ) ) : array(),
-		'subjects' => isset( $_POST['subjects'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['subjects'] ) ) : array(),
-		'languages' => isset( $_POST['languages'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['languages'] ) ) : array(),
+		'ijazah'   => isset( $_POST['ijazah'] ) ? (array) wp_unslash( $_POST['ijazah'] ) : array(),
+		'subjects' => isset( $_POST['subjects'] ) ? (array) wp_unslash( $_POST['subjects'] ) : array(),
+		'languages' => isset( $_POST['languages'] ) ? (array) wp_unslash( $_POST['languages'] ) : array(),
 		'rate_min' => isset( $_POST['rate_min'] ) ? floatval( wp_unslash( $_POST['rate_min'] ) ) : '',
 		'rate_max' => isset( $_POST['rate_max'] ) ? floatval( wp_unslash( $_POST['rate_max'] ) ) : '',
 		'rating'   => isset( $_POST['rating'] ) ? floatval( wp_unslash( $_POST['rating'] ) ) : '',
-		'country'  => isset( $_POST['country'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['country'] ) ) : array(),
-		'timezone' => isset( $_POST['timezone'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['timezone'] ) ) : array(),
+		'country'  => isset( $_POST['country'] ) ? (array) wp_unslash( $_POST['country'] ) : array(),
+		'timezone' => isset( $_POST['timezone'] ) ? (array) wp_unslash( $_POST['timezone'] ) : array(),
 	);
 
-	// Debug: Log sanitized filters
-	error_log( 'MKH Instructor Filter - Sanitized filters: ' . print_r( $filters, true ) );
+	// Sanitize array values
+	$filters['ijazah'] = array_map( 'sanitize_text_field', $filters['ijazah'] );
+	$filters['subjects'] = array_map( 'sanitize_text_field', $filters['subjects'] );
+	$filters['languages'] = array_map( 'sanitize_text_field', $filters['languages'] );
+	$filters['country'] = array_map( 'sanitize_text_field', $filters['country'] );
+	$filters['timezone'] = array_map( 'sanitize_text_field', $filters['timezone'] );
 
 	// Get filtered instructors
 	$instructors = mkh_get_filtered_instructors( $filters );
 	$instructor_public = STM_LMS_Options::get_option( 'instructor_public_profile', true );
 	$instructor_count = count( $instructors );
-
-	// Debug: Log instructor count and data
-	error_log( 'MKH Instructor Filter - Instructor count: ' . $instructor_count );
-	error_log( 'MKH Instructor Filter - Instructors array: ' . print_r( $instructors, true ) );
 
 	// Generate HTML output
 	ob_start();
@@ -278,10 +313,6 @@ function mkh_instructor_filter_ajax() {
 
 	$html = ob_get_clean();
 
-	// Debug: Log HTML output
-	error_log( 'MKH Instructor Filter - HTML length: ' . strlen( $html ) );
-	error_log( 'MKH Instructor Filter - HTML content: ' . $html );
-
 	wp_send_json_success( array(
 		'html' => $html,
 		'count' => $instructor_count,
@@ -289,16 +320,3 @@ function mkh_instructor_filter_ajax() {
 }
 add_action( 'wp_ajax_mkh_instructor_filter', 'mkh_instructor_filter_ajax' );
 add_action( 'wp_ajax_nopriv_mkh_instructor_filter', 'mkh_instructor_filter_ajax' );
-
-/**
- * Localize script with AJAX URL and nonce
- */
-function mkh_instructor_filter_localize_script() {
-	if ( mkh_is_instructors_filter_page() ) {
-		wp_localize_script( 'instructors-filter', 'instructorFilter', array(
-			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-			'nonce'   => wp_create_nonce( 'instructor_filter_nonce' ),
-		) );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'mkh_instructor_filter_localize_script', 20 );

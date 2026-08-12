@@ -53,6 +53,12 @@ function mkh_enqueue_instructors_filter_assets() {
 		// Enqueue with proper dependencies to ensure MasterStudy styles load first
 		wp_enqueue_style( 'instructors-filter', STM_TEMPLATE_URI . '/assets/css/instructors-filter.css', array('stm_lms_styles', 'user', 'instructors_grid'), STM_THEME_VERSION );
 		wp_enqueue_script( 'instructors-filter', STM_TEMPLATE_URI . '/assets/js/instructors-filter.js', array( 'jquery' ), STM_THEME_VERSION, true );
+		
+		// Localize script with AJAX URL and nonce
+		wp_localize_script( 'instructors-filter', 'instructorFilter', array(
+			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+			'nonce'   => wp_create_nonce( 'instructor_filter_nonce' ),
+		) );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'mkh_enqueue_instructors_filter_assets' );
+add_action( 'wp_enqueue_scripts', 'mkh_enqueue_instructors_filter_assets', 20 );
