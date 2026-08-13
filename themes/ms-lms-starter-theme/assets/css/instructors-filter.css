@@ -342,7 +342,7 @@
 .stm_lms_instructors__archive .stm_lms_instructors__grid {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
+	gap: 0;
 	margin: 0 0 50px;
 	padding: 0;
 	width: 100%;
@@ -350,18 +350,23 @@
 
 .stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructors__single {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	width: 100%;
-	padding: 20px;
-	border-radius: 8px;
-	border: 1px solid #eef0f2;
+	padding: 24px;
+	border-radius: 0;
+	border: none;
+	border-bottom: 1px solid #eef0f2;
 	background: #fff;
-	transition: box-shadow 0.2s ease, border-color 0.2s ease;
+	transition: background-color 0.2s ease;
+	text-decoration: none;
+}
+
+.stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructors__single:first-child {
+	border-top: 1px solid #eef0f2;
 }
 
 .stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructors__single:hover {
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-	border-color: #385bce;
+	background-color: #f9f9f9;
 }
 
 .stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_user_side {
@@ -373,8 +378,8 @@
 
 .stm_lms_instructors__archive .stm_lms_instructors__grid .stm-lms-user_avatar {
 	flex-shrink: 0;
-	width: 80px;
-	height: 80px;
+	width: 70px;
+	height: 70px;
 }
 
 .stm_lms_instructors__archive .stm_lms_instructors__grid .stm-lms-user_avatar img {
@@ -385,14 +390,17 @@
 }
 
 .stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_user_side h3 {
-	margin: 0 0 5px 0;
-	font-size: 18px;
+	margin: 0 0 4px 0;
+	font-size: 20px;
+	font-weight: 700;
 	color: #232628;
+	line-height: 1.3;
 }
 
 .stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_user_side h5 {
-	margin: 0 0 10px 0;
+	margin: 0 0 16px 0;
 	font-size: 14px;
+	font-weight: 400;
 	color: #6b7280;
 }
 
@@ -400,7 +408,7 @@
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	margin-top: 15px;
+	margin-top: 12px;
 }
 
 /* Instructor info container for list layout */
@@ -409,14 +417,16 @@
 	display: flex;
 	flex-direction: column;
 	gap: 12px;
+	text-align: left;
 }
 
 /* Teaching skills section */
 .stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructor_teaching {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 8px;
+	gap: 6px;
 	align-items: baseline;
+	margin-bottom: 4px;
 }
 
 /* Description section */
@@ -424,13 +434,14 @@
 	display: flex;
 	flex-direction: column;
 	gap: 4px;
+	margin-bottom: 8px;
 }
 
 /* Details container */
 .stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructor_details {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 20px;
+	gap: 24px 32px;
 	margin-top: 8px;
 }
 
@@ -441,17 +452,18 @@
 	gap: 6px;
 }
 
-/* Labels styling */
+/* Labels styling - BOLD */
 .stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructor_label {
-	font-weight: 600;
+	font-weight: 700;
 	color: #263145;
 	font-size: 14px;
 	white-space: nowrap;
 }
 
-/* Values styling */
+/* Values styling - NORMAL */
 .stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructor_value {
-	color: #6b7280;
+	font-weight: 400;
+	color: #4b5563;
 	font-size: 14px;
 	line-height: 1.5;
 }
@@ -474,23 +486,24 @@
 	
 	.stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructors__single {
 		flex-direction: column;
-		text-align: center;
-		padding: 16px;
+		padding: 20px 16px;
+		text-align: left;
 	}
 	
 	.stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_user_side {
 		flex-direction: column;
-		text-align: center;
-		align-items: center;
+		text-align: left;
+		align-items: flex-start;
+		gap: 16px;
 	}
 	
 	.stm_lms_instructors__archive .stm_lms_instructors__grid .stm-lms-user_avatar {
-		width: 100px;
-		height: 100px;
+		width: 60px;
+		height: 60px;
 	}
 	
 	.stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructor_info {
-		align-items: center;
+		align-items: flex-start;
 		width: 100%;
 	}
 	
@@ -498,32 +511,41 @@
 	.stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructor_description,
 	.stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructor_details {
 		flex-direction: column;
-		align-items: center;
+		align-items: flex-start;
 		gap: 8px;
 	}
 	
 	.stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructor_detail {
-		flex-direction: column;
-		gap: 4px;
+		flex-direction: row;
+		gap: 6px;
 	}
 	
 	.stm_lms_instructors__archive .stm_lms_instructors__grid .stm-lms-user_rating {
-		justify-content: center;
+		justify-content: flex-start;
+	}
+	
+	.stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructor_details {
+		gap: 12px 16px;
 	}
 }
 
 @media (max-width: 480px) {
 	.stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructors__single {
-		padding: 16px;
+		padding: 16px 12px;
 	}
 	
 	.stm_lms_instructors__archive .stm_lms_instructors__grid .stm-lms-user_avatar {
-		width: 80px;
-		height: 80px;
+		width: 50px;
+		height: 50px;
 	}
 	
 	.stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_user_side h3 {
-		font-size: 16px;
+		font-size: 18px;
+	}
+	
+	.stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructor_label,
+	.stm_lms_instructors__archive .stm_lms_instructors__grid .stm_lms_instructor_value {
+		font-size: 13px;
 	}
 }
 
