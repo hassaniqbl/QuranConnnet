@@ -267,6 +267,14 @@ function mkh_instructor_filter_ajax() {
 				$user_data = STM_LMS_User::get_current_user( $user->ID, false, true );
 				$reviews = STM_LMS_Options::get_option( 'course_tab_reviews', true );
 				$rating = STM_LMS_Instructor::my_rating_v2( $user_data );
+				
+				// Get ACF fields for additional instructor information
+				$about_teacher = get_field( 'about_teacher', 'user_' . $user->ID );
+				$teaching_skills = get_field( 'teaching_skills', 'user_' . $user->ID );
+				$languages = get_field( 'languages', 'user_' . $user->ID );
+				$gender = get_field( 'mkh_gender', 'user_' . $user->ID );
+				$timezone = get_field( 'mkh_timezone', 'user_' . $user->ID );
+				$sect = get_field( 'sect', 'user_' . $user->ID );
 				?>
 				<a
 					<?php if ( $instructor_public ) { ?>
@@ -282,23 +290,87 @@ function mkh_instructor_filter_ajax() {
 							</div>
 						<?php endif; ?>
 
-						<h3><?php echo esc_attr( $user_data['login'] ); ?></h3>
+						<div class="stm_lms_instructor_info">
+							<h3><?php echo esc_attr( $user_data['login'] ); ?></h3>
 
-						<?php if ( ! empty( $user_data['meta']['position'] ) ) : ?>
-							<h5><?php echo esc_html( sanitize_text_field( $user_data['meta']['position'] ) ); ?></h5>
-						<?php endif; ?>
+							<?php if ( ! empty( $user_data['meta']['position'] ) ) : ?>
+								<h5><?php echo esc_html( sanitize_text_field( $user_data['meta']['position'] ) ); ?></h5>
+							<?php endif; ?>
 
-						<?php if ( ! empty( $rating['total'] ) && $reviews ) : ?>
-							<div class="stm-lms-user_rating ">
-								<div class="star-rating star-rating__big">
-									<span style="width: <?php echo floatval( $rating['percent'] ); ?>%;"></span>
+							<?php if ( ! empty( $teaching_skills ) && is_array( $teaching_skills ) ) : ?>
+								<div class="stm_lms_instructor_teaching">
+									<span class="stm_lms_instructor_label"><?php esc_html_e( 'I Can Teach:', 'mkh-teacher-addon' ); ?></span>
+									<span class="stm_lms_instructor_value">
+										<?php
+										$skill_labels = array();
+										foreach ( $teaching_skills as $skill ) {
+											$skill_value = is_array( $skill ) ? $skill['value'] : $skill;
+											$skill_labels[] = mkh_get_skill_label( $skill_value );
+										}
+										echo esc_html( implode( ', ', $skill_labels ) );
+										?>
+									</span>
 								</div>
-								<strong class="rating heading_font"><?php echo floatval( $rating['average'] ); ?></strong>
-								<div class="stm-lms-user_rating__total">
-									<?php echo wp_kses_post( sanitize_text_field( $rating['total_marks'] ) ); ?>
+							<?php endif; ?>
+
+							<?php if ( ! empty( $about_teacher ) ) : ?>
+								<div class="stm_lms_instructor_description">
+									<span class="stm_lms_instructor_label"><?php esc_html_e( 'Introduction:', 'mkh-teacher-addon' ); ?></span>
+									<span class="stm_lms_instructor_value"><?php echo esc_html( wp_trim_words( $about_teacher, 20, '...' ) ); ?></span>
 								</div>
+							<?php endif; ?>
+
+							<div class="stm_lms_instructor_details">
+								<?php if ( ! empty( $languages ) && is_array( $languages ) ) : ?>
+									<div class="stm_lms_instructor_detail">
+										<span class="stm_lms_instructor_label"><?php esc_html_e( 'Languages:', 'mkh-teacher-addon' ); ?></span>
+										<span class="stm_lms_instructor_value">
+											<?php
+											$language_labels = array();
+											foreach ( $languages as $language ) {
+												$language_value = is_array( $language ) ? $language['value'] : $language;
+												$language_labels[] = mkh_get_language_label( $language_value );
+											}
+											echo esc_html( implode( ', ', $language_labels ) );
+											?>
+										</span>
+									</div>
+								<?php endif; ?>
+
+								<?php if ( ! empty( $gender ) ) : ?>
+									<div class="stm_lms_instructor_detail">
+										<span class="stm_lms_instructor_label"><?php esc_html_e( 'Gender:', 'mkh-teacher-addon' ); ?></span>
+										<span class="stm_lms_instructor_value"><?php echo esc_html( mkh_get_gender_label( $gender ) ); ?></span>
+									</div>
+								<?php endif; ?>
+
+								<?php if ( ! empty( $timezone ) ) : ?>
+									<div class="stm_lms_instructor_detail">
+										<span class="stm_lms_instructor_label"><?php esc_html_e( 'Time Zone:', 'mkh-teacher-addon' ); ?></span>
+										<span class="stm_lms_instructor_value"><?php echo esc_html( $timezone ); ?></span>
+									</div>
+								<?php endif; ?>
+
+								<?php if ( ! empty( $sect ) ) : ?>
+									<div class="stm_lms_instructor_detail">
+										<span class="stm_lms_instructor_label"><?php esc_html_e( 'Sect:', 'mkh-teacher-addon' ); ?></span>
+										<span class="stm_lms_instructor_value"><?php echo esc_html( $sect ); ?></span>
+									</div>
+								<?php endif; ?>
 							</div>
-						<?php endif; ?>
+
+							<?php if ( ! empty( $rating['total'] ) && $reviews ) : ?>
+								<div class="stm-lms-user_rating">
+									<div class="star-rating star-rating__big">
+										<span style="width: <?php echo floatval( $rating['percent'] ); ?>%;"></span>
+									</div>
+									<strong class="rating heading_font"><?php echo floatval( $rating['average'] ); ?></strong>
+									<div class="stm-lms-user_rating__total">
+										<?php echo wp_kses_post( sanitize_text_field( $rating['total_marks'] ) ); ?>
+									</div>
+								</div>
+							<?php endif; ?>
+						</div>
 
 					</div>
 				</a>

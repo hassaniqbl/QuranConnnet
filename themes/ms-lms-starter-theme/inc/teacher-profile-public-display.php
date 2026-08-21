@@ -809,13 +809,13 @@ function mkh_display_teacher_profile_info( $instructor_id ) {
 	</div>
 
 	<style>
-		.mkh-teacher-profile-public {
-			margin: 30px 0;
-			padding: 30px;
-			background: #fff;
-			border-radius: 8px;
-			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-		}
+	.mkh-teacher-profile-public {
+    margin: 20px auto 0;
+    padding: 0;
+    background: #fff;
+    border-radius: 0;
+    box-shadow: none;
+}
 		.mkh-teacher-profile-section {
 			margin-bottom: 30px;
 			padding-bottom: 30px;
