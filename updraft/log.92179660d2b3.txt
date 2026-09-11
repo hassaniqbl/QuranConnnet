@@ -1,0 +1,224 @@
+0000.000 (0) Opened log file at time: Fri, 11 Sep 2026 14:40:42 +0000 on https://muslimkidstime.local
+0000.002 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.26.7 WP: 7.1 PHP: 8.2.29 (cgi-fcgi, Windows NT LAP205PC 10.0 build 26200 (Windows 11) AMD64) MySQL: 8.0.35 (max packet size=1073741824) WPLANG: en_US Server: nginx/1.26.1 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 13.2M | 14M) multisite: N openssl: OpenSSL 3.0.15 3 Sep 2024 mcrypt: N LANG:  WP Proxy: disabled ZipArchive::addFile: Y
+0000.003 (0) Free space on disk containing Updraft's temporary directory: 21266.6 MB
+0000.016 (0) Tasks: Backup files: 0 (schedule: unset) Backup DB: 1 (schedule: unset)
+0000.019 (0) Semaphore (d, wpor_options) being initialised
+0000.022 (0) Requesting semaphore lock (d) (apparently not via scheduler)
+0000.024 (0) Set semaphore last lock (d) time to 2026-09-11 14:40:42
+0000.025 (0) Semaphore lock (d) complete
+0000.028 (0) Backup run: resumption=0, nonce=92179660d2b3, file_nonce=92179660d2b3 begun at=1789137642 (0s ago), job type=backup
+0000.031 (0) Scheduling a resumption (1) after 300 seconds (1789137942) in case this run gets aborted
+0000.061 (0) This backup run is not intended for files - skipping
+0000.062 (0) Beginning creation of database dump (WordPress DB)
+0000.065 (0) SQL compatibility mode is: NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
+0000.068 (0) Testing potential mysqldump binary: C:\Program Files\MySQL\MySQL Workbench 8.0 CE\mysqldump.exe
+0000.262 (0) Binary mysqldump: error (code: 2)
+0000.263 (0) Testing potential mysqldump binary: C:\Program Files\MySQL\MySQL Server 9.7\bin\mysqldump.exe
+0000.360 (0) Binary mysqldump: error (code: 2)
+0000.407 (0) Table wpor_options: Total expected rows (via COUNT): 331
+0000.408 (0) Table is relatively small; fetch_rows will thus be: 500 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.466 (0) Table wpor_options: Rows added in this batch (next record: 4841): 327 (uncompressed bytes in this segment=1993233) in 0.07 seconds
+0000.475 (0) Table wpor_options: finishing file(s) (2, 325.3 KB)
+0000.483 (0) Table wpor_users: Total expected rows (via COUNT): 5
+0000.484 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.487 (0) Table wpor_users: Rows added in this batch (next record: 5): 5 (uncompressed bytes in this segment=2225) in 0.01 seconds
+0000.492 (0) Table wpor_users: finishing file(s) (2, 1 KB)
+0000.501 (0) Table wpor_usermeta: Total expected rows (via COUNT): 399
+0000.502 (0) Table is relatively small; fetch_rows will thus be: 500 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.511 (0) Table wpor_usermeta: Rows added in this batch (next record: 400): 399 (uncompressed bytes in this segment=30534) in 0.01 seconds
+0000.519 (0) Table wpor_usermeta: finishing file(s) (2, 7.3 KB)
+0000.534 (0) Table wpor_commentmeta: Total expected rows (via COUNT): 0
+0000.538 (0) Table wpor_commentmeta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=689) in 0.01 seconds
+0000.548 (0) Table wpor_commentmeta: finishing file(s) (2, 0.4 KB)
+0000.555 (0) Table wpor_comments: Total expected rows (via COUNT): 14
+0000.556 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.559 (0) Table wpor_comments: Rows added in this batch (next record: 14): 14 (uncompressed bytes in this segment=4739) in 0.01 seconds
+0000.565 (0) Table wpor_comments: finishing file(s) (2, 1.5 KB)
+0000.583 (0) Table wpor_links: Total expected rows (via COUNT): 0
+0000.586 (0) Table wpor_links: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1310) in 0.00 seconds
+0000.593 (0) Table wpor_links: finishing file(s) (2, 0.5 KB)
+0000.685 (0) Table wpor_postmeta: Total expected rows (approximate): 4090
+0000.895 (0) Table wpor_postmeta: Rows added in this batch (next record: 6905): 4090 (uncompressed bytes in this segment=13169144) in 0.30 seconds
+0000.904 (0) Table wpor_postmeta: finishing file(s) (2, 1039.3 KB)
+0000.928 (0) Table wpor_posts: Total expected rows (via COUNT): 563
+0001.042 (0) Table wpor_posts: Rows added in this batch (next record: 54139): 563 (uncompressed bytes in this segment=5240235) in 0.13 seconds
+0001.054 (0) Table wpor_posts: finishing file(s) (2, 197.1 KB)
+0001.061 (0) Table wpor_term_relationships: Total expected rows (approximate): 25
+0001.066 (0) Table wpor_term_relationships: Rows added in this batch (next record: 100000): 25 (uncompressed bytes in this segment=1112) in 0.01 seconds
+0001.076 (0) Table wpor_term_relationships: finishing file(s) (2, 0.5 KB)
+0001.088 (0) Table wpor_term_taxonomy: Total expected rows (via COUNT): 24
+0001.089 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.092 (0) Table wpor_term_taxonomy: Rows added in this batch (next record: 24): 24 (uncompressed bytes in this segment=2009) in 0.01 seconds
+0001.103 (0) Table wpor_term_taxonomy: finishing file(s) (2, 0.6 KB)
+0001.116 (0) Table wpor_termmeta: Total expected rows (via COUNT): 20
+0001.117 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.119 (0) Table wpor_termmeta: Rows added in this batch (next record: 20): 20 (uncompressed bytes in this segment=1578) in 0.01 seconds
+0001.130 (0) Table wpor_termmeta: finishing file(s) (2, 0.5 KB)
+0001.137 (0) Table wpor_terms: Total expected rows (via COUNT): 24
+0001.138 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.140 (0) Table wpor_terms: Rows added in this batch (next record: 24): 24 (uncompressed bytes in this segment=1700) in 0.00 seconds
+0001.151 (0) Table wpor_terms: finishing file(s) (2, 0.8 KB)
+0001.164 (0) Table wpor_e_events: Total expected rows (via COUNT): 0
+0001.168 (0) Table wpor_e_events: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=537) in 0.01 seconds
+0001.173 (0) Table wpor_e_events: finishing file(s) (2, 0.4 KB)
+0001.201 (0) Table wpor_fea_emails: Total expected rows (via COUNT): 0
+0001.203 (0) Table wpor_fea_emails: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=653) in 0.02 seconds
+0001.210 (0) Table wpor_fea_emails: finishing file(s) (2, 0.4 KB)
+0001.228 (0) Table wpor_fea_plans: Total expected rows (via COUNT): 0
+0001.231 (0) Table wpor_fea_plans: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=906) in 0.01 seconds
+0001.243 (0) Table wpor_fea_plans: finishing file(s) (2, 0.4 KB)
+0001.265 (0) Table wpor_fea_submissions: Total expected rows (via COUNT): 0
+0001.268 (0) Table wpor_fea_submissions: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=766) in 0.02 seconds
+0001.274 (0) Table wpor_fea_submissions: finishing file(s) (2, 0.4 KB)
+0001.290 (0) Table wpor_fea_subscriptions: Total expected rows (via COUNT): 0
+0001.292 (0) Table wpor_fea_subscriptions: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=938) in 0.01 seconds
+0001.301 (0) Table wpor_fea_subscriptions: finishing file(s) (2, 0.4 KB)
+0001.311 (0) Table wpor_loginizer_logs: Total expected rows (approximate): 1
+0001.314 (0) Table wpor_loginizer_logs: Rows added in this batch (next record: 1000): 1 (uncompressed bytes in this segment=754) in 0.00 seconds
+0001.323 (0) Table wpor_loginizer_logs: finishing file(s) (2, 0.4 KB)
+0001.333 (0) Table wpor_stm_lms_curriculum_materials: Total expected rows (via COUNT): 1
+0001.335 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.337 (0) Table wpor_stm_lms_curriculum_materials: Rows added in this batch (next record: 49): 1 (uncompressed bytes in this segment=828) in 0.01 seconds
+0001.343 (0) Table wpor_stm_lms_curriculum_materials: finishing file(s) (2, 0.4 KB)
+0001.351 (0) Table wpor_stm_lms_curriculum_sections: Total expected rows (via COUNT): 1
+0001.352 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.353 (0) Table wpor_stm_lms_curriculum_sections: Rows added in this batch (next record: 17): 1 (uncompressed bytes in this segment=762) in 0.00 seconds
+0001.359 (0) Table wpor_stm_lms_curriculum_sections: finishing file(s) (2, 0.4 KB)
+0001.369 (0) Table wpor_stm_lms_lesson_marker_questions: Total expected rows (via COUNT): 0
+0001.371 (0) Table wpor_stm_lms_lesson_marker_questions: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=854) in 0.00 seconds
+0001.382 (0) Table wpor_stm_lms_lesson_marker_questions: finishing file(s) (2, 0.4 KB)
+0001.392 (0) Table wpor_stm_lms_lesson_marker_user_answers: Total expected rows (via COUNT): 0
+0001.394 (0) Table wpor_stm_lms_lesson_marker_user_answers: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=849) in 0.00 seconds
+0001.403 (0) Table wpor_stm_lms_lesson_marker_user_answers: finishing file(s) (2, 0.4 KB)
+0001.410 (0) Table wpor_stm_lms_order_items: Total expected rows (via COUNT): 0
+0001.412 (0) Table wpor_stm_lms_order_items: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=917) in 0.00 seconds
+0001.421 (0) Table wpor_stm_lms_order_items: finishing file(s) (2, 0.4 KB)
+0001.429 (0) Table wpor_stm_lms_user_answers: Total expected rows (via COUNT): 0
+0001.431 (0) Table wpor_stm_lms_user_answers: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=811) in 0.00 seconds
+0001.437 (0) Table wpor_stm_lms_user_answers: finishing file(s) (2, 0.4 KB)
+0001.445 (0) Table wpor_stm_lms_user_bookmarks: Total expected rows (via COUNT): 0
+0001.447 (0) Table wpor_stm_lms_user_bookmarks: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=672) in 0.00 seconds
+0001.453 (0) Table wpor_stm_lms_user_bookmarks: finishing file(s) (2, 0.4 KB)
+0001.463 (0) Table wpor_stm_lms_user_cart: Total expected rows (via COUNT): 0
+0001.465 (0) Table wpor_stm_lms_user_cart: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=700) in 0.00 seconds
+0001.472 (0) Table wpor_stm_lms_user_cart: finishing file(s) (2, 0.4 KB)
+0001.480 (0) Table wpor_stm_lms_user_chat: Total expected rows (via COUNT): 5
+0001.482 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.485 (0) Table wpor_stm_lms_user_chat: Rows added in this batch (next record: 5): 5 (uncompressed bytes in this segment=1015) in 0.01 seconds
+0001.491 (0) Table wpor_stm_lms_user_chat: finishing file(s) (2, 0.5 KB)
+0001.500 (0) Table wpor_stm_lms_user_conversation: Total expected rows (via COUNT): 2
+0001.501 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.503 (0) Table wpor_stm_lms_user_conversation: Rows added in this batch (next record: 2): 2 (uncompressed bytes in this segment=845) in 0.00 seconds
+0001.509 (0) Table wpor_stm_lms_user_conversation: finishing file(s) (2, 0.4 KB)
+0001.516 (0) Table wpor_stm_lms_user_courses: Total expected rows (via COUNT): 1
+0001.518 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.519 (0) Table wpor_stm_lms_user_courses: Rows added in this batch (next record: 3): 1 (uncompressed bytes in this segment=1550) in 0.00 seconds
+0001.525 (0) Table wpor_stm_lms_user_courses: finishing file(s) (2, 0.6 KB)
+0001.535 (0) Table wpor_stm_lms_user_lessons: Total expected rows (via COUNT): 1
+0001.536 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.537 (0) Table wpor_stm_lms_user_lessons: Rows added in this batch (next record: 1): 1 (uncompressed bytes in this segment=867) in 0.00 seconds
+0001.544 (0) Table wpor_stm_lms_user_lessons: finishing file(s) (2, 0.4 KB)
+0001.554 (0) Table wpor_stm_lms_user_quizzes: Total expected rows (via COUNT): 0
+0001.557 (0) Table wpor_stm_lms_user_quizzes: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=790) in 0.00 seconds
+0001.563 (0) Table wpor_stm_lms_user_quizzes: finishing file(s) (2, 0.4 KB)
+0001.572 (0) Table wpor_stm_lms_user_quizzes_times: Total expected rows (via COUNT): 0
+0001.574 (0) Table wpor_stm_lms_user_quizzes_times: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=653) in 0.00 seconds
+0001.583 (0) Table wpor_stm_lms_user_quizzes_times: finishing file(s) (2, 0.3 KB)
+0001.590 (0) Table wpor_stm_lms_user_searches: Total expected rows (via COUNT): 1
+0001.592 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.594 (0) Table wpor_stm_lms_user_searches: Rows added in this batch (next record: 1): 1 (uncompressed bytes in this segment=720) in 0.00 seconds
+0001.600 (0) Table wpor_stm_lms_user_searches: finishing file(s) (2, 0.4 KB)
+0001.608 (0) Table wpor_stm_lms_user_searches_stats: Total expected rows (via COUNT): 1
+0001.608 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.610 (0) Table wpor_stm_lms_user_searches_stats: Rows added in this batch (next record: 1): 1 (uncompressed bytes in this segment=730) in 0.00 seconds
+0001.616 (0) Table wpor_stm_lms_user_searches_stats: finishing file(s) (2, 0.4 KB)
+0001.619 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_options.table.tmpr4842.gz (1/34/fopen): adding to final database dump
+0001.626 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_options.table.gz (2/34/fopen): adding to final database dump
+0001.627 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_users.table.tmpr6.gz (3/34/fopen): adding to final database dump
+0001.628 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_users.table.gz (4/34/fopen): adding to final database dump
+0001.629 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_usermeta.table.tmpr401.gz (5/34/fopen): adding to final database dump
+0001.630 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_usermeta.table.gz (6/34/fopen): adding to final database dump
+0001.631 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_commentmeta.table.tmpr0.gz (7/34/fopen): adding to final database dump
+0001.632 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_commentmeta.table.gz (8/34/fopen): adding to final database dump
+0001.633 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_comments.table.tmpr15.gz (9/34/fopen): adding to final database dump
+0001.634 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_comments.table.gz (10/34/fopen): adding to final database dump
+0001.635 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_links.table.tmpr0.gz (11/34/fopen): adding to final database dump
+0001.636 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_links.table.gz (12/34/fopen): adding to final database dump
+0001.637 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_postmeta.table.tmpr6906.gz (13/34/fopen): adding to final database dump
+0001.657 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_postmeta.table.gz (14/34/fopen): adding to final database dump
+0001.659 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_posts.table.tmpr54140.gz (15/34/fopen): adding to final database dump
+0001.664 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_posts.table.gz (16/34/fopen): adding to final database dump
+0001.665 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_term_relationships.table.tmpr100001.gz (17/34/fopen): adding to final database dump
+0001.667 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_term_relationships.table.gz (18/34/fopen): adding to final database dump
+0001.668 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_term_taxonomy.table.tmpr25.gz (19/34/fopen): adding to final database dump
+0001.669 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_term_taxonomy.table.gz (20/34/fopen): adding to final database dump
+0001.670 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_termmeta.table.tmpr21.gz (21/34/fopen): adding to final database dump
+0001.671 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_termmeta.table.gz (22/34/fopen): adding to final database dump
+0001.672 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_terms.table.tmpr25.gz (23/34/fopen): adding to final database dump
+0001.673 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_terms.table.gz (24/34/fopen): adding to final database dump
+0001.674 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_e_events.table.tmpr0.gz (25/34/fopen): adding to final database dump
+0001.676 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_e_events.table.gz (26/34/fopen): adding to final database dump
+0001.677 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_fea_emails.table.tmpr0.gz (27/34/fopen): adding to final database dump
+0001.678 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_fea_emails.table.gz (28/34/fopen): adding to final database dump
+0001.679 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_fea_plans.table.tmpr0.gz (29/34/fopen): adding to final database dump
+0001.680 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_fea_plans.table.gz (30/34/fopen): adding to final database dump
+0001.681 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_fea_submissions.table.tmpr0.gz (31/34/fopen): adding to final database dump
+0001.683 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_fea_submissions.table.gz (32/34/fopen): adding to final database dump
+0001.684 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_fea_subscriptions.table.tmpr0.gz (33/34/fopen): adding to final database dump
+0001.685 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_fea_subscriptions.table.gz (34/34/fopen): adding to final database dump
+0001.686 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_loginizer_logs.table.tmpr1001.gz (35/34/fopen): adding to final database dump
+0001.687 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_loginizer_logs.table.gz (36/34/fopen): adding to final database dump
+0001.688 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_curriculum_materials.table.tmpr50.gz (37/34/fopen): adding to final database dump
+0001.688 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_curriculum_materials.table.gz (38/34/fopen): adding to final database dump
+0001.689 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_curriculum_sections.table.tmpr18.gz (39/34/fopen): adding to final database dump
+0001.691 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_curriculum_sections.table.gz (40/34/fopen): adding to final database dump
+0001.692 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_lesson_marker_questions.table.tmpr0.gz (41/34/fopen): adding to final database dump
+0001.694 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_lesson_marker_questions.table.gz (42/34/fopen): adding to final database dump
+0001.695 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_lesson_marker_user_answers.table.tmpr0.gz (43/34/fopen): adding to final database dump
+0001.698 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_lesson_marker_user_answers.table.gz (44/34/fopen): adding to final database dump
+0001.699 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_order_items.table.tmpr0.gz (45/34/fopen): adding to final database dump
+0001.701 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_order_items.table.gz (46/34/fopen): adding to final database dump
+0001.701 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_answers.table.tmpr0.gz (47/34/fopen): adding to final database dump
+0001.702 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_answers.table.gz (48/34/fopen): adding to final database dump
+0001.703 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_bookmarks.table.tmpr0.gz (49/34/fopen): adding to final database dump
+0001.704 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_bookmarks.table.gz (50/34/fopen): adding to final database dump
+0001.705 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_cart.table.tmpr0.gz (51/34/fopen): adding to final database dump
+0001.706 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_cart.table.gz (52/34/fopen): adding to final database dump
+0001.707 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_chat.table.tmpr6.gz (53/34/fopen): adding to final database dump
+0001.708 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_chat.table.gz (54/34/fopen): adding to final database dump
+0001.708 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_conversation.table.tmpr3.gz (55/34/fopen): adding to final database dump
+0001.710 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_conversation.table.gz (56/34/fopen): adding to final database dump
+0001.711 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_courses.table.tmpr4.gz (57/34/fopen): adding to final database dump
+0001.712 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_courses.table.gz (58/34/fopen): adding to final database dump
+0001.713 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_lessons.table.tmpr2.gz (59/34/fopen): adding to final database dump
+0001.715 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_lessons.table.gz (60/34/fopen): adding to final database dump
+0001.716 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_quizzes.table.tmpr0.gz (61/34/fopen): adding to final database dump
+0001.717 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_quizzes.table.gz (62/34/fopen): adding to final database dump
+0001.718 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_quizzes_times.table.tmpr0.gz (63/34/fopen): adding to final database dump
+0001.719 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_quizzes_times.table.gz (64/34/fopen): adding to final database dump
+0001.720 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_searches.table.tmpr2.gz (65/34/fopen): adding to final database dump
+0001.721 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_searches.table.gz (66/34/fopen): adding to final database dump
+0001.722 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_searches_stats.table.tmpr2.gz (67/34/fopen): adding to final database dump
+0001.723 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db-table-wpor_stm_lms_user_searches_stats.table.gz (68/34/fopen): adding to final database dump
+0001.738 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db.gz: finished writing out complete database file (1583.8 KB)
+0001.760 (0) Total database tables backed up: 34 (backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db.gz, size: 1621953, sha1: 5848c3ccef80eee08261351d0e2e392d7430f512, sha256: 31c36600db3114b438a98bb9428d8c24a68320b8579345904c7af06267bb5a4a)
+0001.768 (0) backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db.gz: db: This file has not yet been successfully uploaded: will queue
+0001.769 (0) Saving backup history. Total backup size: 1.5 MB
+0001.771 (0) Requesting upload of the files that have not yet been successfully uploaded (1)
+0001.773 (0) Cloud backup selection (1/1): none with instance (1/1) (last)
+0001.774 (0) No remote despatch: user chose no remote backup service
+0001.775 (0) Recording as successfully uploaded: backup_2026-09-11-1440_Learn_Al_Quran_92179660d2b3-db.gz
+0001.779 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=2
+0001.781 (0) Number of backup sets in history: 1; groups (db): 1
+0001.782 (0) Examining (for databases) backup set with group_id=0, nonce=92179660d2b3, datestamp=1789137642 (Sep 11 2026 14:40:42)
+0001.783 (0) This backup set is the backup set just made, so will not be deleted.
+0001.783 (0) Number of backup sets in history: 1; groups (files): 1
+0001.783 (0) Examining (for files) backup set with nonce=92179660d2b3, datestamp=1789137642 (Sep 11 2026 14:40:42)
+0001.783 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0001.784 (0) Retain: saving new backup history (sets now: 1) and finishing retain operation
+0001.787 (0) Resume backup (92179660d2b3, 0): finish run
+0001.791 (0) Decremented the semaphore (d) by 1
+0001.793 (0) Semaphore (d) unlocked
+0001.794 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0001.799 (0) No email will/can be sent - the user has not configured an email address.
+0001.800 (0) The backup succeeded and is now complete
