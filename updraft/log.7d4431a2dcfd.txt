@@ -1,0 +1,229 @@
+0000.000 (0) Opened log file at time: Wed, 16 Sep 2026 10:13:32 +0000 on https://muslimkidstime.local
+0000.002 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.26.7 WP: 7.1 PHP: 8.2.29 (cgi-fcgi, Windows NT LAP205PC 10.0 build 26200 (Windows 11) AMD64) MySQL: 8.0.35 (max packet size=1073741824) WPLANG: en_US Server: nginx/1.26.1 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 13.4M | 14M) multisite: N openssl: OpenSSL 3.0.15 3 Sep 2024 mcrypt: N LANG:  WP Proxy: disabled ZipArchive::addFile: Y
+0000.002 (0) Free space on disk containing Updraft's temporary directory: 40740.8 MB
+0000.006 (0) Tasks: Backup files: 1 (schedule: unset) Backup DB: 0 (schedule: unset)
+0000.019 (0) Semaphore (f, wpor_options) being initialised
+0000.022 (0) Requesting semaphore lock (f) (apparently not via scheduler)
+0000.024 (0) Set semaphore last lock (f) time to 2026-09-16 10:13:32
+0000.025 (0) Semaphore lock (f) complete
+0000.027 (0) Backup run: resumption=0, nonce=7d4431a2dcfd, file_nonce=7d4431a2dcfd begun at=1789553612 (0s ago), job type=backup
+0000.028 (0) Scheduling a resumption (1) after 300 seconds (1789553912) in case this run gets aborted
+0000.055 (0) Checking if we have a zip executable available
+0000.058 (0) Creation of backups of directories: beginning
+0000.062 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0002.040 (0) Total entities for the zip file: 1754 directories, 10582 files (0 skipped as non-modified), 250.4 MB
+0002.062 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0002.077 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0002.091 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0002.105 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0002.119 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0002.135 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 600 files added (on-disk size: 0 KB)
+0002.149 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 700 files added (on-disk size: 0 KB)
+0002.155 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 25 MB added on this batch (25.1 MB, 10582 files batched, 728 (728) added so far); re-opening (prior size: 0 KB)
+0018.666 (0) A useful amount of data was added after this amount of zip processing: 19.4 s (normalised: 19.3 s, rate: 1325.2 KB/s)
+0018.690 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 800 files added (on-disk size: 7011.2 KB)
+0018.704 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 900 files added (on-disk size: 7011.2 KB)
+0018.721 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 1000 files added (on-disk size: 7011.2 KB)
+0018.736 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 1100 files added (on-disk size: 7011.2 KB)
+0018.754 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 1200 files added (on-disk size: 7011.2 KB)
+0018.770 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 1300 files added (on-disk size: 7011.2 KB)
+0018.785 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 1400 files added (on-disk size: 7011.2 KB)
+0018.799 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 1500 files added (on-disk size: 7011.2 KB)
+0018.815 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 1600 files added (on-disk size: 7011.2 KB)
+0018.818 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 25 MB added on this batch (25.3 MB, 10582 files batched, 885 (1613) added so far); re-opening (prior size: 7011.2 KB)
+0032.968 (0) A useful amount of data was added after this amount of zip processing: 14.7 s (normalised: 14.6 s, rate: 1758.7 KB/s)
+0032.997 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 1700 files added (on-disk size: 14328.3 KB)
+0033.012 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 1800 files added (on-disk size: 14328.3 KB)
+0033.026 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 1900 files added (on-disk size: 14328.3 KB)
+0033.039 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 2000 files added (on-disk size: 14328.3 KB)
+0033.052 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 2100 files added (on-disk size: 14328.3 KB)
+0033.066 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 2200 files added (on-disk size: 14328.3 KB)
+0033.079 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 2300 files added (on-disk size: 14328.3 KB)
+0033.081 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 25 MB added on this batch (25.3 MB, 10582 files batched, 696 (2309) added so far); re-opening (prior size: 14328.3 KB)
+0045.008 (0) A useful amount of data was added after this amount of zip processing: 12.8 s (normalised: 12.6 s, rate: 2025.5 KB/s)
+0045.043 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 2400 files added (on-disk size: 20841.4 KB)
+0045.062 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 2500 files added (on-disk size: 20841.4 KB)
+0045.095 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 25 MB added on this batch (25 MB, 10582 files batched, 276 (2585) added so far); re-opening (prior size: 20841.4 KB)
+0056.267 (0) A useful amount of data was added after this amount of zip processing: 12 s (normalised: 12 s, rate: 2130.9 KB/s)
+0056.300 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 2600 files added (on-disk size: 26480.2 KB)
+0056.327 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 2700 files added (on-disk size: 26480.2 KB)
+0056.359 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 2800 files added (on-disk size: 26480.2 KB)
+0056.407 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 2900 files added (on-disk size: 26480.2 KB)
+0056.424 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 25 MB added on this batch (25.1 MB, 10582 files batched, 394 (2979) added so far); re-opening (prior size: 26480.2 KB)
+0065.951 (0) A useful amount of data was added after this amount of zip processing: 9.7 s (normalised: 9.7 s, rate: 2641.6 KB/s)
+0065.982 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 3000 files added (on-disk size: 33112.8 KB)
+0066.025 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 3100 files added (on-disk size: 33112.8 KB)
+0066.047 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 3200 files added (on-disk size: 33112.8 KB)
+0066.064 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 3300 files added (on-disk size: 33112.8 KB)
+0066.096 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 3400 files added (on-disk size: 33112.8 KB)
+0066.126 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 3500 files added (on-disk size: 33112.8 KB)
+0066.155 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 3600 files added (on-disk size: 33112.8 KB)
+0066.181 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 3700 files added (on-disk size: 33112.8 KB)
+0066.197 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 3800 files added (on-disk size: 33112.8 KB)
+0066.237 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 3900 files added (on-disk size: 33112.8 KB)
+0066.272 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (7.6 MB, 10582 files batched, 1001 (3980) added so far); re-opening (prior size: 33112.8 KB)
+0086.029 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 4000 files added (on-disk size: 35597.1 KB)
+0086.043 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 4100 files added (on-disk size: 35597.1 KB)
+0086.058 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 4200 files added (on-disk size: 35597.1 KB)
+0086.072 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 4300 files added (on-disk size: 35597.1 KB)
+0086.088 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 4400 files added (on-disk size: 35597.1 KB)
+0086.101 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 4500 files added (on-disk size: 35597.1 KB)
+0086.116 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 4600 files added (on-disk size: 35597.1 KB)
+0086.130 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 4700 files added (on-disk size: 35597.1 KB)
+0086.144 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 4800 files added (on-disk size: 35597.1 KB)
+0086.158 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 4900 files added (on-disk size: 35597.1 KB)
+0086.169 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (15.7 MB, 10582 files batched, 1001 (4981) added so far); re-opening (prior size: 35597.1 KB)
+0103.061 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 5000 files added (on-disk size: 43648.9 KB)
+0103.106 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 5100 files added (on-disk size: 43648.9 KB)
+0103.138 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 5200 files added (on-disk size: 43648.9 KB)
+0103.159 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 5300 files added (on-disk size: 43648.9 KB)
+0103.198 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 5400 files added (on-disk size: 43648.9 KB)
+0103.237 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 5500 files added (on-disk size: 43648.9 KB)
+0103.266 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 5600 files added (on-disk size: 43648.9 KB)
+0103.304 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 5700 files added (on-disk size: 43648.9 KB)
+0103.333 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 5800 files added (on-disk size: 43648.9 KB)
+0103.339 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 25 MB added on this batch (25.4 MB, 10582 files batched, 832 (5813) added so far); re-opening (prior size: 43648.9 KB)
+0119.933 (0) A useful amount of data was added after this amount of zip processing: 17.7 s (normalised: 17.5 s, rate: 1467 KB/s)
+0120.010 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 5900 files added (on-disk size: 50630.2 KB)
+0120.027 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 6000 files added (on-disk size: 50630.2 KB)
+0120.044 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 6100 files added (on-disk size: 50630.2 KB)
+0120.060 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 6200 files added (on-disk size: 50630.2 KB)
+0120.077 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 6300 files added (on-disk size: 50630.2 KB)
+0120.096 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 6400 files added (on-disk size: 50630.2 KB)
+0120.116 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 6500 files added (on-disk size: 50630.2 KB)
+0120.134 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 6600 files added (on-disk size: 50630.2 KB)
+0120.154 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 6700 files added (on-disk size: 50630.2 KB)
+0120.174 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 6800 files added (on-disk size: 50630.2 KB)
+0120.178 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (15.3 MB, 10582 files batched, 1001 (6814) added so far); re-opening (prior size: 50630.2 KB)
+0138.640 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 6900 files added (on-disk size: 54635.5 KB)
+0138.670 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 7000 files added (on-disk size: 54635.5 KB)
+0138.694 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 7100 files added (on-disk size: 54635.5 KB)
+0138.719 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 7200 files added (on-disk size: 54635.5 KB)
+0138.765 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 7300 files added (on-disk size: 54635.5 KB)
+0138.820 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 7400 files added (on-disk size: 54635.5 KB)
+0138.862 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 7500 files added (on-disk size: 54635.5 KB)
+0138.891 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 7600 files added (on-disk size: 54635.5 KB)
+0138.921 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 7700 files added (on-disk size: 54635.5 KB)
+0138.957 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 7800 files added (on-disk size: 54635.5 KB)
+0138.961 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (11.4 MB, 10582 files batched, 1001 (7815) added so far); re-opening (prior size: 54635.5 KB)
+0152.568 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 7900 files added (on-disk size: 63573.5 KB)
+0152.597 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 8000 files added (on-disk size: 63573.5 KB)
+0152.643 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 8100 files added (on-disk size: 63573.5 KB)
+0152.680 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 8200 files added (on-disk size: 63573.5 KB)
+0152.727 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 8300 files added (on-disk size: 63573.5 KB)
+0152.780 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 8400 files added (on-disk size: 63573.5 KB)
+0152.831 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 8500 files added (on-disk size: 63573.5 KB)
+0152.866 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 8600 files added (on-disk size: 63573.5 KB)
+0152.904 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 8700 files added (on-disk size: 63573.5 KB)
+0152.952 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 8800 files added (on-disk size: 63573.5 KB)
+0152.957 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (21 MB, 10582 files batched, 1001 (8816) added so far); re-opening (prior size: 63573.5 KB)
+0177.087 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 8900 files added (on-disk size: 70296.8 KB)
+0177.142 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 9000 files added (on-disk size: 70296.8 KB)
+0177.197 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 9100 files added (on-disk size: 70296.8 KB)
+0177.255 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 9200 files added (on-disk size: 70296.8 KB)
+0177.308 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 9300 files added (on-disk size: 70296.8 KB)
+0177.364 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 9400 files added (on-disk size: 70296.8 KB)
+0177.417 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 9500 files added (on-disk size: 70296.8 KB)
+0177.464 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 9600 files added (on-disk size: 70296.8 KB)
+0177.516 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 9700 files added (on-disk size: 70296.8 KB)
+0177.570 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 9800 files added (on-disk size: 70296.8 KB)
+0177.579 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (23.7 MB, 10582 files batched, 1001 (9817) added so far); re-opening (prior size: 70296.8 KB)
+0217.714 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 9900 files added (on-disk size: 77205.9 KB)
+0217.754 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 10000 files added (on-disk size: 77205.9 KB)
+0217.790 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 10100 files added (on-disk size: 77205.9 KB)
+0217.840 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 10200 files added (on-disk size: 77205.9 KB)
+0217.866 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 10300 files added (on-disk size: 77205.9 KB)
+0217.912 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 10400 files added (on-disk size: 77205.9 KB)
+0217.964 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.tmp: 10500 files added (on-disk size: 77205.9 KB)
+0238.874 (0) Creating zip file manifest (backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.list-temp.tmp)
+0238.948 (0) Successfully created zip file manifest (size: 1067647)
+0239.808 (0) Created plugins zip (0) - 78819.8 KB in 239.7 s (328.8 KB/s) (sha1: 7590eba594a6968c3db1bd7e4ba80da5f1744ac5, sha256: 1a70f3d81e82860951ee7399ce53e1e776790f11ceace53a062e4efcec292b57)
+0239.825 (0) Cloud backup selection (1/1): none with instance (1/1) (last)
+0239.826 (0) No remote despatch: user chose no remote backup service
+0239.827 (0) Recording as successfully uploaded: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip
+0239.830 (0) Deleting zip manifest (backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip.list.tmp)
+0239.834 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=2
+0239.837 (0) Number of backup sets in history: 1; groups (db): 1
+0239.838 (0) Examining (for databases) backup set with group_id=0, nonce=92179660d2b3, datestamp=1789137642 (Sep 11 2026 14:40:42)
+0239.838 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0239.839 (0) Number of backup sets in history: 1; groups (files): 1
+0239.840 (0) Examining (for files) backup set with nonce=92179660d2b3, datestamp=1789137642 (Sep 11 2026 14:40:42)
+0239.840 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0239.841 (0) Retain: saving new backup history (sets now: 1) and finishing retain operation
+0239.846 (0) Beginning creation of dump of themes (split every: 400 MB)
+0240.112 (0) Total entities for the zip file: 167 directories, 809 files (0 skipped as non-modified), 22.2 MB
+0240.130 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0240.161 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0240.201 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0240.237 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0240.277 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0240.315 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-themes.zip.tmp: 600 files added (on-disk size: 0 KB)
+0240.346 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-themes.zip.tmp: 700 files added (on-disk size: 0 KB)
+0240.400 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-themes.zip.tmp: 800 files added (on-disk size: 0 KB)
+0260.775 (0) The scheduled resumption is within 45 seconds - will reschedule
+0260.777 (0) Rescheduling resumption 1: moving to 345 seconds from now (1789554218)
+0260.779 (0) To decrease the likelihood of overlaps, increasing resumption interval to: 300 + 45 = 345
+0260.787 (0) Creating zip file manifest (backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-themes.zip.list-temp.tmp)
+0260.793 (0) Successfully created zip file manifest (size: 63313)
+0260.988 (0) Created themes zip (0) - 17168.1 KB in 21.1 s (812.3 KB/s) (sha1: 33da9fb9e09688d6a5dc557c54fe5447d08c5c36, sha256: 807d9c30202e15202828c9291f1580f54382f61d1fd4d8e8fa44579a4cbd1087)
+0260.994 (0) Cloud backup selection (1/1): none with instance (1/1) (last)
+0260.995 (0) No remote despatch: user chose no remote backup service
+0260.996 (0) Recording as successfully uploaded: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-themes.zip
+0260.998 (0) Deleting zip manifest (backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-themes.zip.list.tmp)
+0261.000 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=2
+0261.001 (0) Number of backup sets in history: 1; groups (db): 1
+0261.002 (0) Examining (for databases) backup set with group_id=0, nonce=92179660d2b3, datestamp=1789137642 (Sep 11 2026 14:40:42)
+0261.003 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0261.004 (0) Number of backup sets in history: 1; groups (files): 1
+0261.006 (0) Examining (for files) backup set with nonce=92179660d2b3, datestamp=1789137642 (Sep 11 2026 14:40:42)
+0261.006 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0261.007 (0) Retain: saving new backup history (sets now: 1) and finishing retain operation
+0261.014 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots,wp-staging
+0261.015 (0) Looking for candidates to backup in: C:\Users\hassan.iqbal\Local Sites\muslimkidstime\app\public/wp-content/uploads
+0261.017 (0) finding files: 2021: adding to list (1)
+0261.019 (0) finding files: 2022: adding to list (2)
+0261.020 (0) finding files: 2026: adding to list (3)
+0261.021 (0) finding files: elementor: adding to list (4)
+0261.023 (0) finding files: stm_lms_avatars: adding to list (5)
+0261.024 (0) finding files: stm_lms_styles: adding to list (6)
+0261.025 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0261.210 (0) Total entities for the zip file: 55 directories, 645 files (0 skipped as non-modified), 127.7 MB
+0261.252 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0261.309 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)
+0261.312 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 25 MB added on this batch (25.2 MB, 645 files batched, 212 (212) added so far); re-opening (prior size: 0 KB)
+0261.497 (0) A useful amount of data was added after this amount of zip processing: 1.3 s (normalised: 1.2 s, rate: 20484.2 KB/s)
+0261.499 (0) Performance is good - will increase the amount of data we attempt to batch (time=1.2600710391998, normalised_time=1.2497441925611, max_time=261.49749493599, data points known=1, old_max_bytes=26214400, new_max_bytes=209715200)
+0261.539 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-uploads.zip.tmp: 300 files added (on-disk size: 25854.7 KB)
+0261.569 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-uploads.zip.tmp: 400 files added (on-disk size: 25854.7 KB)
+0261.592 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-uploads.zip.tmp: 500 files added (on-disk size: 25854.7 KB)
+0261.616 (0) Zip: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-uploads.zip.tmp: 600 files added (on-disk size: 25854.7 KB)
+0263.973 (0) Creating zip file manifest (backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-uploads.zip.list-temp.tmp)
+0263.978 (0) Successfully created zip file manifest (size: 39632)
+0265.339 (0) Created uploads zip (0) - 129804.9 KB in 4.3 s (30121.9 KB/s) (sha1: e04049e3a2a965a423e134d3134c24779cee6d86, sha256: 77843c7f039809e82f57a3c4beef611213012b0182b94069ce7c8401a1b3a725)
+0265.345 (0) Cloud backup selection (1/1): none with instance (1/1) (last)
+0265.346 (0) No remote despatch: user chose no remote backup service
+0265.347 (0) Recording as successfully uploaded: backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-uploads.zip
+0265.349 (0) Deleting zip manifest (backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-uploads.zip.list.tmp)
+0265.351 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=2
+0265.353 (0) Number of backup sets in history: 1; groups (db): 1
+0265.353 (0) Examining (for databases) backup set with group_id=0, nonce=92179660d2b3, datestamp=1789137642 (Sep 11 2026 14:40:42)
+0265.354 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0265.355 (0) Number of backup sets in history: 1; groups (files): 1
+0265.356 (0) Examining (for files) backup set with nonce=92179660d2b3, datestamp=1789137642 (Sep 11 2026 14:40:42)
+0265.356 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0265.358 (0) Retain: saving new backup history (sets now: 1) and finishing retain operation
+0265.362 (0) No backup of mu-plugins: excluded by user's options
+0265.363 (0) No backup of others: excluded by user's options
+0265.367 (0) Saving backup status to database (elements: 6)
+0265.369 (0) No database backup (wp) - not part of this run
+0265.372 (0) backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-plugins.zip: plugins: This file has already been successfully processed
+0265.373 (0) backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-themes.zip: themes: This file has already been successfully processed
+0265.374 (0) backup_2026-09-16-1013_Learn_Al_Quran_7d4431a2dcfd-uploads.zip: uploads: This file has already been successfully processed
+0265.375 (0) Saving backup history. Total backup size: 220.5 MB
+0265.378 (0) Resume backup (7d4431a2dcfd, 0): finish run
+0265.380 (0) There were no more files that needed uploading
+0265.381 (0) Decremented the semaphore (f) by 1
+0265.383 (0) Semaphore (f) unlocked
+0265.383 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0265.387 (0) No email will be sent - this backup set was empty.
+0265.387 (0) The backup succeeded and is now complete

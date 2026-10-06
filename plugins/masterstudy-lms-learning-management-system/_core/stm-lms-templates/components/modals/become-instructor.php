@@ -82,9 +82,17 @@ wp_localize_script(
 						}
 					} else {
 						?>
-						<div class="masterstudy-become-instructor-modal__form-field">
-							<input type="text" name="degree" placeholder="<?php esc_html_e( 'Enter degree', 'masterstudy-lms-learning-management-system' ); ?>" class="masterstudy-become-instructor-modal__form-input">
-						</div>
+					<div class="masterstudy-become-instructor-modal__form-field">
+    <input 
+        type="tel"
+        name="degree"
+        placeholder="<?php esc_attr_e( 'Enter Phone Number', 'masterstudy-lms-learning-management-system' ); ?>"
+        class="masterstudy-become-instructor-modal__form-input"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+    >
+</div>
 						<div class="masterstudy-become-instructor-modal__form-field">
 							<input type="text" name="expertize" placeholder="<?php esc_html_e( 'Enter expertise', 'masterstudy-lms-learning-management-system' ); ?>" class="masterstudy-become-instructor-modal__form-input">
 						</div>

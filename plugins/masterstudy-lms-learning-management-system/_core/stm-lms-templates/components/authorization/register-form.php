@@ -152,9 +152,17 @@
 			} else {
 				?>
 				<div class="masterstudy-authorization__instructor-container <?php echo esc_attr( $only_for_instructor ? 'masterstudy-authorization__instructor-container_open' : '' ); ?>">
-					<div class="masterstudy-authorization__form-field">
-						<input type="text" name="degree" class="masterstudy-authorization__form-input" placeholder="<?php echo esc_html__( 'Enter degree', 'masterstudy-lms-learning-management-system' ); ?>">
-					</div>
+				<div class="masterstudy-authorization__form-field">
+    <input 
+        type="tel"
+        name="degree"
+        placeholder="<?php esc_attr_e( 'Enter Phone Number', 'masterstudy-lms-learning-management-system' ); ?>"
+        class="masterstudy-authorization__form-input"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+    >
+</div>
 					<div class="masterstudy-authorization__form-field">
 						<input type="text" name="expertize" class="masterstudy-authorization__form-input" placeholder="<?php echo esc_html__( 'Enter expertize', 'masterstudy-lms-learning-management-system' ); ?>">
 					</div>
